@@ -11,35 +11,75 @@ let activeVideoName = "";
 
 let generatedSchedule = [];
 
+// --- Configuration & State ---
+let APP_CONFIG = {
+    apiKey: localStorage.getItem('GEMINI_API_KEY') || '',
+    model: localStorage.getItem('GEMINI_MODEL') || 'gemini-1.5-flash-001'
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Scenario Selection Triggers
-    const scenarios = document.querySelectorAll('.scenario-card');
-    scenarios.forEach(card => {
-        card.querySelector('button').addEventListener('click', () => {
+    // 1. Initialize Config UI
+    const apiInput = document.getElementById('geminiApiKeyInput');
+    const modelInput = document.getElementById('geminiModelInput');
+    
+    if(APP_CONFIG.apiKey) apiInput.value = APP_CONFIG.apiKey;
+    if(APP_CONFIG.model) modelInput.value = APP_CONFIG.model;
+
+    // 2. Save Config Handler
+    document.getElementById('saveConfigBtn').addEventListener('click', () => {
+        const newKey = apiInput.value.trim();
+        const newModel = modelInput.value.trim();
+        
+        if(!newKey) {
+            alert("Please enter a valid API Key.");
+            return;
+        }
+
+        APP_CONFIG.apiKey = newKey;
+        APP_CONFIG.model = newModel;
+        
+        localStorage.setItem('GEMINI_API_KEY', newKey);
+        localStorage.setItem('GEMINI_MODEL', newModel);
+        
+        // Hide Modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('configModal'));
+        modal.hide();
+        
+        showAlert("Settings saved successfully!", "success");
+    });
+
+    // Toggle Password Visibility in Modal
+    document.getElementById('toggleKeyVisibilityModal').addEventListener('click', function() {
+        const input = document.getElementById('geminiApiKeyInput');
+        const icon = this.querySelector('i');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('bi-eye-slash');
+            icon.classList.add('bi-eye');
+        }
+    });
+
+    // 3. Scenario Selection Logic
+    document.querySelectorAll('.select-scenario-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const card = e.target.closest('.scenario-card');
             selectScenario(card);
         });
     });
 
-    // 2. Gemini Analysis Trigger
+    // 4. Run Analysis Handler
     const runBtn = document.getElementById('run-gemini-btn');
-    if (runBtn) {
-        runBtn.addEventListener('click', runGeminiAnalysis);
-    }
+    if(runBtn) runBtn.addEventListener('click', runGeminiAnalysis);
 
-    // 3. API Key Visibility
-    const toggleKeyBtn = document.getElementById('toggleKeyVisibility');
-    if (toggleKeyBtn) {
-        toggleKeyBtn.addEventListener('click', () => {
-            const input = document.getElementById('geminiApiKey');
-            input.type = input.type === 'password' ? 'text' : 'password';
-        });
-    }
-
-    // 4. Video Event Listener for Ads
+    // 5. Video Event Listener for Ads
     const mainVideo = document.getElementById('main-video');
     mainVideo.addEventListener('timeupdate', checkAdSchedule);
 
-    // 5. Custom Fullscreen Logic (to keep overlays visible)
+    // 6. Custom Fullscreen Logic
     document.getElementById('custom-fullscreen-btn').addEventListener('click', () => {
         const container = document.getElementById('video-container');
         if (!document.fullscreenElement) {
@@ -50,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.exitFullscreen();
         }
     });
-
 });
 
 // ... existing code ...
@@ -135,9 +174,12 @@ async function selectScenario(cardElement) {
 /* -------------------------------------------------------------------------- */
 
 async function runGeminiAnalysis() {
-    const apiKey = document.getElementById('geminiApiKey').value.trim();
+    const apiKey = APP_CONFIG.apiKey;
     if (!apiKey) {
-        showAlert("Please enter a valid Gemini API Key.", "warning");
+        // Open Modal if no key
+        const modal = new bootstrap.Modal(document.getElementById('configModal'));
+        modal.show();
+        showAlert("Please configure your Gemini API Key first.", "warning");
         return;
     }
 
@@ -152,6 +194,10 @@ async function runGeminiAnalysis() {
     document.getElementById('json-output').innerText = "Processing...";
     
     try {
+        const btn = document.getElementById('run-gemini-btn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing...';
+
         log("Starting Gemini Analysis Pipeline...", "system");
 
         // 1. Upload File
@@ -177,6 +223,10 @@ async function runGeminiAnalysis() {
     } catch (error) {
         log(`Error: ${error.message}`, "error");
         console.error(error);
+    } finally {
+        const btn = document.getElementById('run-gemini-btn');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-stars me-2"></i>Analyze with Gemini';
     }
 }
 
@@ -237,25 +287,10 @@ async function waitForFileActive(apiKey, fileUri) {
 
 
 async function generateAdSchedule(apiKey, fileUri, profile) {
-   const modelName = 'gemini-2.5-flash';
-
-    try {
-        log("Discovering available models...", "system");
-        const modelListRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-        if(modelListRes.ok) {
-            const data = await modelListRes.json();
-            // Prefer 1.5 Flash, then Pro
-            const bestModel = data.models.find(m => m.name.includes('gemini-1.5-flash')) || 
-                              data.models.find(m => m.name.includes('gemini-1.5-pro'));
-            if(bestModel) {
-                // remove 'models/' prefix if present
-                modelName = bestModel.name.replace('models/', '');
-                log(`Selected Model: ${modelName}`, "system");
-            }
-        }
-    } catch(e) {
-        console.warn("Model discovery failed, using default.");
-    }
+    let modelName = APP_CONFIG.model || 'gemini-1.5-flash-001'; // Reverted to 'gemini-1.5-flash-001'
+    
+    // Optional: Log model usage
+    log(`Using Model: ${modelName}`, "system");
 
     const prompt = `
     You are the AdStream Contextual Engine.

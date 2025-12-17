@@ -22,8 +22,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode"
-                    title="Toggle Dark Mode">
+                <div class="nav-item ms-auto me-2">
+                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#configModal">
+                        <i class="bi bi-gear-fill me-2"></i>Config
+                    </button>
+                </div>
+                <div class="nav-item dropdown" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
                     <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button"
                         data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
                         <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
@@ -67,26 +71,7 @@
             </div>
         </div>
 
-        <!-- Configuration / API Key -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="alert alert-info d-flex align-items-center" role="alert">
-                    <i class="bi bi-info-circle-fill me-2"></i>
-                    <div>
-                        <strong>Gemini Setup:</strong>
-                        1. Get API Key from <a href="https://aistudio.google.com/" target="_blank">Google AI Studio</a>.
-                        2. Enter it below to enable AI analysis.
-                    </div>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
-                    <input type="password" class="form-control" id="geminiApiKey"
-                        placeholder="Paste your Gemini API Key here">
-                    <button class="btn btn-outline-secondary" type="button" id="toggleKeyVisibility"><i
-                            class="bi bi-eye"></i></button>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Scenario Selection -->
         <div class="row mb-4">
@@ -339,6 +324,50 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Configuration Modal -->
+    <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="configModalLabel"><i class="bi bi-gear-fill me-2"></i>Configuration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="configForm">
+                        <div class="mb-3">
+                            <label for="geminiApiKeyInput" class="form-label">Gemini API Key</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                                <input type="password" class="form-control" id="geminiApiKeyInput"
+                                    placeholder="Paste API Key">
+                                <button class="btn btn-outline-secondary" type="button" id="toggleKeyVisibilityModal"><i
+                                        class="bi bi-eye"></i></button>
+                            </div>
+                            <div class="form-text">Get key from <a href="https://aistudio.google.com/"
+                                    target="_blank">Google AI Studio</a></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="geminiModelInput" class="form-label">Gemini Model</label>
+                            <input class="form-control" list="geminiModelOptions" id="geminiModelInput"
+                                placeholder="Type model ID (e.g., gemini-1.5-flash)">
+                            <datalist id="geminiModelOptions">
+                                <option value="gemini-1.5-flash-001">Gemini 1.5 Flash (Stable)</option>
+                                <option value="gemini-1.5-pro-001">Gemini 1.5 Pro (Reasoning)</option>
+                                <option value="gemini-2.0-flash-exp">Gemini 2.0 Flash (Experimental)</option>
+                            </datalist>
+                            <div class="form-text">Select from list or type any custom model ID.</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveConfigBtn">Save Settings</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3.1/dist/dark-theme.js"></script>
