@@ -1,5 +1,5 @@
 
-let generatedSchedule = [];
+
 let isAdShowing = false;
 let currentAd = null;
 
@@ -8,6 +8,8 @@ let activeProfile = {};
 let activeVideoPath = "";
 let activeVideoBlob = null;
 let activeVideoName = "";
+
+let generatedSchedule = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Scenario Selection Triggers
@@ -36,7 +38,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Video Event Listener for Ads
     const mainVideo = document.getElementById('main-video');
     mainVideo.addEventListener('timeupdate', checkAdSchedule);
+
+    // 5. Custom Fullscreen Logic (to keep overlays visible)
+    document.getElementById('custom-fullscreen-btn').addEventListener('click', () => {
+        const container = document.getElementById('video-container');
+        if (!document.fullscreenElement) {
+            container.requestFullscreen().catch(err => {
+                showAlert(`Error attempting to enable fullscreen mode: ${err.message}`, "danger");
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    });
+
 });
+
+// ... existing code ...
+
+function showAlert(message, type = 'danger') {
+    const container = document.getElementById('alert-container');
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div><i class="bi bi-exclamation-circle-fill me-2"></i>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('');
+    container.append(wrapper);
+    
+    // Auto dismiss after 5s
+    setTimeout(() => {
+        wrapper.remove();
+    }, 5000);
+}
 
 
 async function selectScenario(cardElement) {
@@ -103,12 +137,12 @@ async function selectScenario(cardElement) {
 async function runGeminiAnalysis() {
     const apiKey = document.getElementById('geminiApiKey').value.trim();
     if (!apiKey) {
-        alert("Please enter a valid Gemini API Key.");
+        showAlert("Please enter a valid Gemini API Key.", "warning");
         return;
     }
 
     if (!activeVideoBlob) {
-        alert("Video not loaded successfully. Cannot analyze.");
+        showAlert("Video not loaded successfully. Cannot analyze.", "danger");
         return;
     }
 
@@ -203,34 +237,58 @@ async function waitForFileActive(apiKey, fileUri) {
 
 
 async function generateAdSchedule(apiKey, fileUri, profile) {
+   const modelName = 'gemini-2.5-flash';
+
+    try {
+        log("Discovering available models...", "system");
+        const modelListRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
+        if(modelListRes.ok) {
+            const data = await modelListRes.json();
+            // Prefer 1.5 Flash, then Pro
+            const bestModel = data.models.find(m => m.name.includes('gemini-1.5-flash')) || 
+                              data.models.find(m => m.name.includes('gemini-1.5-pro'));
+            if(bestModel) {
+                // remove 'models/' prefix if present
+                modelName = bestModel.name.replace('models/', '');
+                log(`Selected Model: ${modelName}`, "system");
+            }
+        }
+    } catch(e) {
+        console.warn("Model discovery failed, using default.");
+    }
+
     const prompt = `
     You are the AdStream Contextual Engine.
-    User Profile: matched with Name: ${profile.name}, Interests: ${profile.interests.join(", ")}, Mood: ${profile.mood}, Buying Pattern: ${profile.pattern}.
+    User Profile: 
+    - Name: ${profile.name}
+    - Demographics: ${profile.age || "Unknown"} years old, ${profile.gender || "Unknown"}
+    - Interests: ${profile.interests.join(", ")}
+    - Recent Searches: ${profile.searches ? profile.searches.join(", ") : "None"}
+    - Mood: ${profile.mood}
+    - Buying Pattern: ${profile.pattern}
     
     Task: Scan the video for ad placement opportunities aligned with the User Profile.
     Output: A JSON list of objects.
+    
+    CRITICAL INSTRUCTION:
+    1. Use REAL WORLD BRANDS (e.g., Apple, Nike, Coca-Cola, Samsung, Spotify) that match the context.
+    2. detailed 'visual_prompt': A descriptive prompt to generate a high-quality ad image for this brand (e.g., "cinematic shot of an icy cold Coca-Cola bottle on a sunny beach").
+    
     Format:
     [
       {
         "timestamp_seconds": number,
         "duration": number (approx 5-10),
-        "trigger_reason": "string explaining the visual match",
-        "ad_title": "Short catchy title",
-        "ad_copy": "Short copy tailored to mood",
-        "cta_link": "https://example.com"
+        "trigger_reason": "string explaining visual match",
+        "real_brand_name": "Brand Name",
+        "visual_prompt": "description of the ad image to generate",
+        "ad_title": "Catchy Headline",
+        "ad_copy": "Persuasive copy",
+        "cta_link": "https://brand-site.com"
       }
     ]
     Return ONLY valid JSON.
     `;
-
-    // --- CHANGE STARTS HERE ---
-    
-    // 1. HARDCODE THE CORRECT MODEL (Remove the discovery try/catch block)
-    // "gemini-1.5-pro-latest" is the most reliable model for Video Analysis in v1beta
-    const modelName = 'gemini-2.5-flash';
-
-
-    // --- CHANGE ENDS HERE ---
 
     // 2. Generation Request
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
@@ -300,14 +358,38 @@ function showAd(ad) {
     currentAd = ad;
     
     const overlay = document.getElementById('ad-overlay');
+    const container = document.querySelector('.ad-content');
+    
+    // Inject Image if visual_prompt exists
+    if(ad.visual_prompt) {
+        const imgContainer = document.getElementById('ad-image-container');
+        const imgEl = document.getElementById('ad-image');
+        
+        imgContainer.classList.remove('d-none');
+        imgEl.style.opacity = '0.5'; // dimmed while loading
+        
+        // Pollinations.ai API for dynamic generation
+        const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(ad.visual_prompt)}?width=600&height=340&nologo=true&seed=${Math.floor(Math.random()*1000)}`;
+        
+        imgEl.onload = () => { imgEl.style.opacity = '1'; }; // fade in on load
+        imgEl.src = imageUrl;
+        
+    } else {
+        document.getElementById('ad-image-container').classList.add('d-none');
+    }
+
+    document.getElementById('ad-brand').innerText = ad.real_brand_name || "Sponsored";
     document.getElementById('ad-title').innerText = ad.ad_title;
     document.getElementById('ad-copy').innerText = ad.ad_copy;
     document.getElementById('ad-cta').href = ad.cta_link;
     
     overlay.classList.remove('d-none');
-    setTimeout(() => overlay.classList.add('active'), 10);
+    // slight delay to allow display:block to apply before opacity transition
+    setTimeout(() => {
+        overlay.classList.add('active');
+    }, 10);
     
-    log(`Ad Triggered: ${ad.ad_title}`, "system");
+    log(`Ad Triggered: ${ad.real_brand_name || 'Ad'} - ${ad.ad_title}`, "system");
 }
 
 function hideAd() {

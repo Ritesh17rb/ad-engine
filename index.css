@@ -67,11 +67,68 @@ body {
     background: #000;
 }
 
+/* Fullscreen adjustments */
+#video-container:fullscreen {
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+#video-container:fullscreen video {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    /* Ensure video isn't cropped */
+}
+
+#video-container:fullscreen .ad-overlay {
+    /* distinct positioning for fullscreen */
+    position: fixed;
+    bottom: 8vh;
+    left: 4vw;
+    width: 35vw;
+    /* Responsive width */
+    max-width: 600px;
+    /* Cap width for huge screens */
+    min-width: 400px;
+    z-index: 9999;
+    /* Ensure on top */
+
+    /* Remove transforms that might blur images */
+    transform: none;
+
+    /* enhanced styling for big screen */
+    background: rgba(10, 10, 10, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Ensure image container works in fullscreen */
+#video-container:fullscreen #ad-image-container {
+    width: 100%;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Ensure text is readable on large screen */
+#video-container:fullscreen h4 {
+    font-size: 1.5rem;
+}
+
+#video-container:fullscreen p {
+    font-size: 1.1rem;
+}
+
 .ad-overlay {
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     left: 20px;
-    right: 20px;
+
+    /* Bigger width for image ads */
+    width: 480px;
+    max-width: 90%;
+
     /* Glassmorphism */
     background: rgba(20, 20, 20, 0.75);
     backdrop-filter: blur(12px);

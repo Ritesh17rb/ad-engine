@@ -45,10 +45,25 @@
     </nav>
 
     <div class="container mt-4">
+        <div id="alert-container"></div>
         <div class="row text-center mb-4">
             <div class="col">
-                <h1 class="display-4">AdStream Contextual Engine</h1>
-                <p class="lead">AI-driven contextual advertising insertion</p>
+                <h1 class="display-4 fw-bold">AdStream Contextual Engine</h1>
+                <p class="lead mb-4">AI-driven contextual advertising insertion</p>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-start">
+                        <ul class="list-unstyled d-inline-block text-muted">
+                            <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Real-time
+                                    Video Analysis:</strong> Understands scene context, objects, and audio cues.</li>
+                            <li class="mb-2"><i
+                                    class="bi bi-check2-circle text-primary me-2"></i><strong>Hyper-Personalization:</strong>
+                                Adapts ad logic to user demographics and search history.</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i><strong>Dynamic
+                                    Creative Generation:</strong> Creates custom ad copy and visuals on the fly.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -66,7 +81,7 @@
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
                     <input type="password" class="form-control" id="geminiApiKey"
-                        placeholder="Paste your Gemini API Key here" value="AIzaSyAop89ziee9l96Ei3IRM8TdLTDOz9_Tgk8">
+                        placeholder="Paste your Gemini API Key here">
                     <button class="btn btn-outline-secondary" type="button" id="toggleKeyVisibility"><i
                             class="bi bi-eye"></i></button>
                 </div>
@@ -76,53 +91,155 @@
         <!-- Scenario Selection -->
         <div class="row mb-4">
             <div class="col-12">
-                <h4 class="mb-3">Select a Scenario</h4>
+                <h4 class="mb-3">Select a Target Persona</h4>
             </div>
 
-            <!-- Scenario 1 -->
-            <div class="col-md-4">
+            <!-- Scenario 1: The Tech Enthusiast -->
+            <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100 border-primary" data-video="videos/video1.mp4"
-                    data-profile='{"name": "Alex", "interests": ["Tech", "Gaming", "Sci-Fi"], "mood": "Excited", "pattern": "Impulse buyer"}'>
+                    data-profile='{"name": "Alex", "age": 24, "gender": "Male", "interests": ["Gaming", "VR", "Sci-Fi"], "mood": "Excited", "pattern": "Impulse buyer", "searches": ["RTX 4090 price", "Cyberpunk mods"]}'>
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-controller me-2"></i>Gamer & Techie</h5>
-                        <p class="card-text small text-muted">User: Alex<br>Video: video1.mp4</p>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-controller me-2"></i>Gamer & Techie</h5>
+                            <span class="badge bg-primary">Gen Z</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">Alex, 24 • Male</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "RTX 4090 price", "Cyberpunk mods"
+                        </div>
                         <ul class="list-group list-group-flush small mb-3">
-                            <li class="list-group-item">Streamer setup</li>
-                            <li class="list-group-item">High-energy</li>
+                            <li class="list-group-item px-0"><i class="bi bi-tag-fill me-2 text-secondary"></i>Impulse
+                                Buyer</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-emoji-sunglasses-fill me-2 text-secondary"></i>Mood: Excited</li>
                         </ul>
-                        <button class="btn btn-primary w-100 select-scenario-btn">Select Scenario 1</button>
+                        <button class="btn btn-primary w-100 select-scenario-btn">Select Persona</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Scenario 2 -->
-            <div class="col-md-4">
+            <!-- Scenario 2: The Eco-Traveler -->
+            <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video2.mp4"
-                    data-profile='{"name": "Sarah", "interests": ["Travel", "Nature", "Wellness"], "mood": "Relaxed", "pattern": "Researcher"}'>
+                    data-profile='{"name": "Sarah", "age": 32, "gender": "Female", "interests": ["Sustainable Travel", "Yoga", "Organic Food"], "mood": "Relaxed", "pattern": "Researcher", "searches": ["Eco-lodges Bali", "Plastic-free travel kit"]}'>
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-tree me-2"></i>Nature Lover</h5>
-                        <p class="card-text small text-muted">User: Sarah<br>Video: video2.mp4</p>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-tree me-2"></i>Eco Traveler</h5>
+                            <span class="badge bg-success">Millennial</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">Sarah, 32 • Female</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "Eco-lodges Bali", "Zero waste kit"
+                        </div>
                         <ul class="list-group list-group-flush small mb-3">
-                            <li class="list-group-item">Eco-tourism</li>
-                            <li class="list-group-item">Calm vibes</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-journal-text me-2 text-secondary"></i>Researches Specs</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-emoji-smile-fill me-2 text-secondary"></i>Mood: Relaxed</li>
                         </ul>
-                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Scenario 2</button>
+                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Persona</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Scenario 3 -->
-            <div class="col-md-4">
+            <!-- Scenario 3: The Fitness Pro -->
+            <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video3.mp4"
-                    data-profile='{"name": "Mike", "interests": ["Sports", "Fitness", "Nutrition"], "mood": "Focused", "pattern": "Discount seeker"}'>
+                    data-profile='{"name": "Mike", "age": 29, "gender": "Male", "interests": ["Marathon", "Biohacking", "Supplements"], "mood": "Focused", "pattern": "Loyalist", "searches": ["Best running shoes 2025", "Whey protein deals"]}'>
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-activity me-2"></i>Fitness Buff</h5>
-                        <p class="card-text small text-muted">User: Mike<br>Video: video3.mp4</p>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-activity me-2"></i>Fitness Buff</h5>
+                            <span class="badge bg-danger">Athlete</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">Mike, 29 • Male</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "Best running shoes", "Protein deals"
+                        </div>
                         <ul class="list-group list-group-flush small mb-3">
-                            <li class="list-group-item">Marathon training</li>
-                            <li class="list-group-item">Performance gear</li>
+                            <li class="list-group-item px-0"><i class="bi bi-shield-check me-2 text-secondary"></i>Brand
+                                Loyalist</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-lightning-fill me-2 text-secondary"></i>Mood: Focused</li>
                         </ul>
-                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Scenario 3</button>
+                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Persona</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 4: The Busy Professional (Luxury) -->
+            <div class="col-md-4 mb-3">
+                <div class="card scenario-card h-100" data-video="videos/video1.mp4"
+                    data-profile='{"name": "Priya", "age": 41, "gender": "Female", "interests": ["Luxury Cars", "Investment", "Fine Dining"], "mood": "Serious", "pattern": "Quality driven", "searches": ["EV SUV reviews", "Michelin star restaurants"]}'>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-briefcase me-2"></i>Executive</h5>
+                            <span class="badge bg-dark">Gen X</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">Priya, 41 • Female</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "EV SUV reviews", "Market trends"
+                        </div>
+                        <ul class="list-group list-group-flush small mb-3">
+                            <li class="list-group-item px-0"><i class="bi bi-gem me-2 text-secondary"></i>Quality First
+                            </li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-emoji-neutral-fill me-2 text-secondary"></i>Mood: Serious</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Persona</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 5: The DIY Dad -->
+            <div class="col-md-4 mb-3">
+                <div class="card scenario-card h-100" data-video="videos/video2.mp4"
+                    data-profile='{"name": "David", "age": 45, "gender": "Male", "interests": ["Home Improvement", "Woodworking", "BBQ"], "mood": "Curious", "pattern": "Discount seeker", "searches": ["Deck building guide", "Power drill sales"]}'>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-tools me-2"></i>DIY Dad</h5>
+                            <span class="badge bg-secondary">Gen X</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">David, 45 • Male</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "Deck building", "Drill sales"
+                        </div>
+                        <ul class="list-group list-group-flush small mb-3">
+                            <li class="list-group-item px-0"><i class="bi bi-percent me-2 text-secondary"></i>Value
+                                Seeker</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-lightbulb-fill me-2 text-secondary"></i>Mood: Curious</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Persona</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 6: The Gen Z Student -->
+            <div class="col-md-4 mb-3">
+                <div class="card scenario-card h-100" data-video="videos/video3.mp4"
+                    data-profile='{"name": "Emma", "age": 19, "gender": "Female", "interests": ["Thrifting", "TikTok Trends", "Indie Music"], "mood": "Bored", "pattern": "Trend follower", "searches": ["Y2K fashion", "Concert tickets cheap"]}'>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-music-note-beamed me-2"></i>Trendsetter</h5>
+                            <span class="badge bg-info text-dark">Gen Z</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">Emma, 19 • Female</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "Y2K fashion", "Viral skincare"
+                        </div>
+                        <ul class="list-group list-group-flush small mb-3">
+                            <li class="list-group-item px-0"><i class="bi bi-phone me-2 text-secondary"></i>Social
+                                Driven</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-emoji-dizzy-fill me-2 text-secondary"></i>Mood: Bored</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Persona</button>
                     </div>
                 </div>
             </div>
@@ -148,8 +265,12 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span><i class="bi bi-film me-2"></i>Video Source: <span
                                 id="current-video-label">src</span></span>
-                        <div class="spinner-border text-primary spinner-border-sm d-none" role="status"
-                            id="video-loading-spinner"></div>
+                        <div>
+                            <div class="spinner-border text-primary spinner-border-sm d-none me-2" role="status"
+                                id="video-loading-spinner"></div>
+                            <button class="btn btn-sm btn-outline-secondary" id="custom-fullscreen-btn"
+                                title="Fullscreen with Ads"><i class="bi bi-arrows-fullscreen"></i></button>
+                        </div>
                     </div>
                     <div class="ratio ratio-16x9 bg-black position-relative" id="video-container">
                         <video id="main-video" controls crossorigin="anonymous">
@@ -162,6 +283,15 @@
                                 <button type="button"
                                     class="btn-close btn-close-white position-absolute top-0 end-0 m-2"
                                     aria-label="Close" id="close-ad"></button>
+
+                                <!-- Dynamic Image Slot -->
+                                <div class="mb-3 ratio ratio-16x9 d-none" id="ad-image-container">
+                                    <img id="ad-image" class="rounded border border-secondary"
+                                        style="object-fit: cover;" alt="Advertisement">
+                                </div>
+
+                                <div class="text-uppercase small text-warning fw-bold mb-1" id="ad-brand">Sponsored
+                                </div>
                                 <h4 id="ad-title" class="mb-2">Ad Title</h4>
                                 <p id="ad-copy" class="mb-3">Ad copy goes here...</p>
                                 <a href="#" id="ad-cta" class="btn btn-sm btn-light fw-bold" target="_blank">Learn
