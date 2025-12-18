@@ -48,6 +48,39 @@ document.addEventListener('DOMContentLoaded', () => {
         showAlert("Settings saved successfully!", "success");
     });
 
+    // 2. Set Custom Persona Button
+    document.getElementById('set-custom-persona-btn').addEventListener('click', () => {
+        const name = document.getElementById('custom-name').value;
+        const age = document.getElementById('custom-age').value;
+        const gender = document.getElementById('custom-gender').value;
+        const interests = document.getElementById('custom-interests').value.split(',').map(s => s.trim());
+        const searches = document.getElementById('custom-searches').value.split(',').map(s => s.trim());
+        const mood = document.getElementById('custom-mood').value;
+        const pattern = document.getElementById('custom-pattern').value;
+
+        const profile = { name, age, gender, interests, searches, mood, pattern };
+        
+        // Use a mock card element for selectScenario to reuse UI highlighting logic partially, 
+        // or just manually set it. Let's manually set it to be cleaner.
+        
+        activeProfile = profile;
+        
+        // Update UI Visuals
+        document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('border-primary', 'bg-light'));
+        const customCard = document.getElementById('custom-persona-card');
+        customCard.classList.add('border-primary', 'bg-light'); // Highlight custom card
+        
+        // Update Active Engine Interface
+        document.getElementById('engine-interface').classList.remove('d-none');
+        document.getElementById('active-profile-name').innerText = activeProfile.name;
+        document.getElementById('active-interests').innerText = activeProfile.interests.join(", ");
+        
+        // Reset log if needed
+        if(generatedSchedule.length > 0) {
+           log("New profile selected. Ready to re-analyze.", "system"); 
+        }
+    });
+
     // Toggle Password Visibility in Modal
     document.getElementById('toggleKeyVisibilityModal').addEventListener('click', function() {
         const input = document.getElementById('geminiApiKeyInput');
@@ -68,6 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             const card = e.target.closest('.scenario-card');
             selectScenario(card);
+        });
+    });
+
+    // 4. Independent Video Selection Logic
+    document.querySelectorAll('.select-video-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const card = e.target.closest('.video-card');
+            selectVideoSource(card);
         });
     });
 
@@ -112,6 +153,67 @@ function showAlert(message, type = 'danger') {
 }
 
 
+
+
+async function selectVideoSource(cardElement) {
+    // 1. Highlight UI
+    document.querySelectorAll('.video-card').forEach(c => {
+        c.classList.remove('border-primary', 'bg-light');
+        c.querySelector('button').className = 'btn btn-outline-secondary w-100 select-video-btn';
+        c.querySelector('button').innerText = "Load Video";
+    });
+    
+    cardElement.classList.add('border-primary', 'bg-light');
+    const btn = cardElement.querySelector('button');
+    btn.className = 'btn btn-primary w-100 fw-bold';
+    btn.innerText = "Active";
+
+    const videoPath = cardElement.dataset.videoSrc;
+    
+    // 2. Load the video
+    await loadVideoContent(videoPath);
+    
+    // 3. Ensure Interface is valid (if profile exists)
+    if(activeProfile.name) {
+        document.getElementById('engine-interface').classList.remove('d-none');
+    } else {
+        showAlert("Video loaded! Now select a Target Persona below.", "info");
+    }
+}
+
+async function loadVideoContent(videoPath) {
+    activeVideoPath = videoPath;
+    activeVideoName = videoPath.split('/').pop();
+    
+    document.getElementById('current-video-label').innerText = activeVideoName;
+    document.getElementById('video-loading-spinner').classList.remove('d-none');
+    
+    // Clear previous schedule for THIS video
+    generatedSchedule = [];
+    document.getElementById('json-output').innerText = "Video changed. Ready to analyze.";
+
+    try {
+        log(`Loading ${activeVideoName}...`, "system");
+        const response = await fetch(videoPath);
+        if (!response.ok) throw new Error(`Failed to load video file: ${response.statusText}`);
+        activeVideoBlob = await response.blob();
+        
+        // Initialize Player
+        const videoUrl = URL.createObjectURL(activeVideoBlob);
+        const videoPlayer = document.getElementById('main-video');
+        videoPlayer.querySelector('source').src = videoUrl;
+        videoPlayer.load();
+        
+        document.getElementById('video-loading-spinner').classList.add('d-none');
+        log("Video loaded successfully.", "success");
+    } catch (e) {
+        console.error(e);
+        document.getElementById('video-loading-spinner').classList.add('d-none');
+        log(`Error loading video: ${e.message}`, "error");
+        showAlert("Failed to load video file.", "danger");
+    }
+}
+
 async function selectScenario(cardElement) {
     // Highlight UI
     document.querySelectorAll('.scenario-card').forEach(c => {
@@ -125,47 +227,23 @@ async function selectScenario(cardElement) {
     btn.className = 'btn btn-primary w-100 fw-bold';
     btn.innerText = "Selected";
 
-    // Load Data
+    // Parse Data
+    // Note: Scenario cards imply a default video, but we only load it if no video is active 
+    // OR just overwrite it because "Scenario" implies a full preset. User requested "have a card for [videos] also",
+    // implying meaningful choice. I will have this OVERWRITE the video for simplicity as per standard "Scenario" behavior.
+    
     const videoPath = cardElement.dataset.video;
     const profileJson = JSON.parse(cardElement.dataset.profile);
 
     activeProfile = profileJson;
-    activeVideoPath = videoPath;
-    activeVideoName = videoPath.split('/').pop();
 
     // Update UI Active State
     document.getElementById('engine-interface').classList.remove('d-none');
     document.getElementById('active-profile-name').innerText = activeProfile.name;
     document.getElementById('active-interests').innerText = activeProfile.interests.join(", ");
-    document.getElementById('current-video-label').innerText = activeVideoName;
-    document.getElementById('video-loading-spinner').classList.remove('d-none');
     
-    // Clear previous logs and schedule
-    clearLogs();
-    generatedSchedule = [];
-    document.getElementById('json-output').innerText = "Select a scenario to start.";
-    
-    // Load Video Blob (mocking "upload" by fetching local file)
-    try {
-        log(`Loading ${activeVideoName}...`, "system");
-        const response = await fetch(videoPath);
-        if (!response.ok) throw new Error(`Failed to load video file: ${response.statusText}`);
-        activeVideoBlob = await response.blob();
-        
-        // Initialize Player source
-        const videoUrl = URL.createObjectURL(activeVideoBlob);
-        const videoPlayer = document.getElementById('main-video');
-        videoPlayer.querySelector('source').src = videoUrl;
-        videoPlayer.load();
-        
-        document.getElementById('video-loading-spinner').classList.add('d-none');
-        log("Video loaded. Ready for analysis.", "success");
-    } catch (e) {
-        console.error(e);
-        document.getElementById('video-loading-spinner').classList.add('d-none');
-        log(`Error loading video: ${e.message}`, "error");
-        log("Ensure you are running a local server (e.g. npx http-server) so relative paths work.", "system");
-    }
+    // Load Video (Reuse logic)
+    await loadVideoContent(videoPath);
 }
 
 
