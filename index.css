@@ -1,8 +1,42 @@
 /* Global Styles */
+/* Global Styles */
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     transition: background-color 0.3s, color 0.3s;
 }
+
+/* Custom Gradients */
+.bg-gradient-primary-soft {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    /* Fallback/Alternative: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+    /* Let's try a subtle nice one */
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
+    /* Metallic / Clean */
+    background: linear-gradient(to right, #ECE9E6, #FFFFFF);
+    /* Clouds */
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    /* Blue soft */
+}
+
+[data-bs-theme="dark"] .bg-gradient-primary-soft {
+    background: linear-gradient(120deg, #2a2a2a 0%, #3a3a3a 100%);
+    color: white;
+}
+
+.avatar-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Chat/Log Styling from Scaffolding */
 .chat-msg {
@@ -179,4 +213,88 @@ body {
     padding: 0 4px;
     border-radius: 4px;
     font-weight: 600;
+}
+
+/* Hide native fullscreen button in Chrome/Edge/Safari */
+video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+}
+
+/* Hide in Firefox */
+video::-moz-full-screen-button {
+    display: none !important;
+}
+
+/* Hide in generic Controls */
+video:fullscreen {
+    /* If native fullscreen is somehow triggered, this ensures no weird styling conflict, mostly no-op */
+    background: #000;
+}
+
+/* Pulse Animation for Overlay Text */
+@keyframes pulse-slow {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.98);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(0.98);
+    }
+}
+
+.animate-pulse {
+    animation: pulse-slow 2s infinite ease-in-out;
+}
+
+/* Radar Scan Effect */
+.radar-spinner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0%, rgba(13, 110, 253, 0.5) 100%);
+    position: relative;
+    animation: radar-spin 1.5s linear infinite;
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.4);
+}
+
+.radar-spinner::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #fff;
+}
+
+@keyframes radar-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* List Item Hover */
+.list-group-item.hover-effect {
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+}
+
+.list-group-item.hover-effect:hover {
+    transform: translateX(5px);
+    border-left: 4px solid #0d6efd;
+    background-color: var(--bs-body-bg) !important;
 }

@@ -1,7 +1,13 @@
 
 
+import { adCatalog } from './ad_catalog.js';
+import { html, render } from 'https://cdn.jsdelivr.net/npm/lit-html@3.1.0/+esm';
+
 let isAdShowing = false;
 let currentAd = null;
+let ytPlayer = null;
+
+
 
 // Active Session State
 let activeProfile = {};
@@ -16,6 +22,9 @@ let APP_CONFIG = {
     apiKey: localStorage.getItem('GEMINI_API_KEY') || '',
     model: localStorage.getItem('GEMINI_MODEL') || 'gemini-1.5-flash-001'
 };
+const CACHE_KEY_PREFIX = 'ADSTREAM_CACHE_v2_';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Config UI
@@ -121,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mainVideo.addEventListener('timeupdate', checkAdSchedule);
 
     // 6. Custom Fullscreen Logic
+    // 6. Custom Fullscreen Logic
     document.getElementById('custom-fullscreen-btn').addEventListener('click', () => {
         const container = document.getElementById('video-container');
         if (!document.fullscreenElement) {
@@ -131,7 +141,58 @@ document.addEventListener('DOMContentLoaded', () => {
             document.exitFullscreen();
         }
     });
+
+    // 7. Manual Ad Close Button
+    document.getElementById('close-ad').addEventListener('click', () => {
+        hideAd();
+    });
+
+    // 9. Skip Ad Button Handler
+    document.getElementById('skip-ad-btn').addEventListener('click', () => {
+        hideAd();
+    });
+
+    // 8. Initialize YouTube Player
+
+    // Define callback BEFORE injecting script
+    window.onYouTubeIframeAPIReady = function() {
+        ytPlayer = new YT.Player('youtube-player', {
+            height: '100%',
+            width: '100%',
+            videoId: '', // start empty
+            playerVars: {
+                'playsinline': 1,
+                'controls': 0, 
+                'rel': 0,
+                'showinfo': 0,
+                'modestbranding': 1
+            },
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+        log("YouTube Player API Ready", "system");
+    };
+
+    // Inject Script now
+    // Check if script already exists to avoid duplication errors causing race conditions
+    if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
 });
+
+
+function onPlayerStateChange(event) {
+    // YT.PlayerState.ENDED = 0
+    if (event.data === 0) {
+        console.log("Ad ended");
+        hideAd();
+    }
+}
+
 
 // ... existing code ...
 
@@ -173,12 +234,11 @@ async function selectVideoSource(cardElement) {
     // 2. Load the video
     await loadVideoContent(videoPath);
     
-    // 3. Ensure Interface is valid (if profile exists)
-    if(activeProfile.name) {
-        document.getElementById('engine-interface').classList.remove('d-none');
-    } else {
-        showAlert("Video loaded! Now select a Target Persona below.", "info");
-    }
+    // 3. Show Interface Immediately
+    document.getElementById('engine-interface').classList.remove('d-none');
+    
+    // Scroll to player for better UX
+    document.getElementById('engine-interface').scrollIntoView({ behavior: 'smooth' });
 }
 
 async function loadVideoContent(videoPath) {
@@ -190,29 +250,34 @@ async function loadVideoContent(videoPath) {
     
     // Clear previous schedule for THIS video
     generatedSchedule = [];
-    document.getElementById('json-output').innerText = "Video changed. Ready to analyze.";
+    
+    // reset state
+    render(html`<div class="text-muted p-3">Video changed. Ready to analyze.</div>`, document.getElementById('json-output'));
+
+
+    // OPTIMIZATION: Set src immediately for instant playback perception
+    const videoPlayer = document.getElementById('main-video');
+    videoPlayer.querySelector('source').src = videoPath;
+    videoPlayer.load();
 
     try {
         log(`Loading ${activeVideoName}...`, "system");
+        
+        // Fetch blob in background for Gemini (silent)
         const response = await fetch(videoPath);
         if (!response.ok) throw new Error(`Failed to load video file: ${response.statusText}`);
         activeVideoBlob = await response.blob();
         
-        // Initialize Player
-        const videoUrl = URL.createObjectURL(activeVideoBlob);
-        const videoPlayer = document.getElementById('main-video');
-        videoPlayer.querySelector('source').src = videoUrl;
-        videoPlayer.load();
-        
         document.getElementById('video-loading-spinner').classList.add('d-none');
-        log("Video loaded successfully.", "success");
+        log("Video loaded and ready for analysis.", "success");
     } catch (e) {
         console.error(e);
         document.getElementById('video-loading-spinner').classList.add('d-none');
-        log(`Error loading video: ${e.message}`, "error");
-        showAlert("Failed to load video file.", "danger");
+        log(`Error loading video blob: ${e.message}`, "error");
+        showAlert("Video loaded for playback, but analysis may fail (Blob error).", "warning");
     }
 }
+
 
 async function selectScenario(cardElement) {
     // Highlight UI
@@ -228,22 +293,35 @@ async function selectScenario(cardElement) {
     btn.innerText = "Selected";
 
     // Parse Data
-    // Note: Scenario cards imply a default video, but we only load it if no video is active 
-    // OR just overwrite it because "Scenario" implies a full preset. User requested "have a card for [videos] also",
-    // implying meaningful choice. I will have this OVERWRITE the video for simplicity as per standard "Scenario" behavior.
-    
-    const videoPath = cardElement.dataset.video;
     const profileJson = JSON.parse(cardElement.dataset.profile);
-
     activeProfile = profileJson;
 
     // Update UI Active State
-    document.getElementById('engine-interface').classList.remove('d-none');
+    document.getElementById('profile-banner-container').classList.remove('d-none');
     document.getElementById('active-profile-name').innerText = activeProfile.name;
-    document.getElementById('active-interests').innerText = activeProfile.interests.join(", ");
     
-    // Load Video (Reuse logic)
-    await loadVideoContent(videoPath);
+    // Render Interests as Badges
+    const interestContainer = document.getElementById('active-interests');
+    render(html`${activeProfile.interests.map(i => html`<span class="badge bg-secondary-subtle text-secondary-emphasis me-1 border">${i}</span>`)}`, interestContainer);
+    
+    // Also update demographics if element exists (will add in HTML next)
+    const demoEl = document.getElementById('active-demographics');
+    if(demoEl) demoEl.innerText = `${activeProfile.age || '?'} Years • ${activeProfile.gender || 'Unknown'} • ${activeProfile.mood || 'Neutral'}`;
+
+    
+    // We do NOT change the video here anymore. Video and Persona are independent.
+    // If interface is hidden (user selected persona first), show it?
+    // Actually, user might want to pick video next. 
+    // But if they pick persona, then video, the video logic will show the interface.
+    // If they picked video, then persona, interface is already there.
+    // If they pick persona first, let's show the interface but with empty video state? 
+    // The previous logic hid it. Let's keep it visible if they pick persona, encouraging them to pick video if empty.
+    
+    document.getElementById('engine-interface').classList.remove('d-none');
+    
+    if(!activeVideoPath) {
+        showAlert("Persona selected! Now select a Video to analyze.", "info");
+    }
 }
 
 
@@ -266,43 +344,108 @@ async function runGeminiAnalysis() {
         return;
     }
 
+    if (!activeProfile || !activeProfile.name) {
+        showAlert("Please select a Target Persona to analyze for.", "warning");
+        // Scroll to persona selection
+        document.querySelector('.scenario-card')?.scrollIntoView({ behavior: 'smooth' });
+        return;
+    }
+
+
     // reset state
     generatedSchedule = [];
     clearLogs();
-    document.getElementById('json-output').innerText = "Processing...";
+    
+    // Initial status render
+    const scheduleContainer = document.getElementById('json-output');
+    render(html`<div class="text-muted p-3"><span class="spinner-border spinner-border-sm me-2"></span>Processing...</div>`, scheduleContainer);
+    
+    // Check Cache First
+    const cacheKey = `${CACHE_KEY_PREFIX}${activeVideoName}_${activeProfile.name}`;
+    const cachedData = localStorage.getItem(cacheKey);
+    
+    if (cachedData) {
+        log("Cache Hit! Loading saved analysis...", "success");
+        const schedule = JSON.parse(cachedData);
+        generatedSchedule = schedule;
+        renderSchedule(schedule);
+        document.getElementById('engine-status').innerText = "Loaded from Cache. Ready to play.";
+        
+        // Ensure overlay is hidden if it was somehow shown
+        document.getElementById('analysis-overlay').classList.add('d-none');
+        document.getElementById('analysis-overlay').classList.remove('d-flex');
+        return;
+    }
+
+    // Show Analysis Overlay with Flex for Centering
+    const overlay = document.getElementById('analysis-overlay');
+    const stepLabel = document.getElementById('analysis-step');
+    
+    overlay.classList.remove('d-none');
+    overlay.classList.add('d-flex'); // Enable Flexbox for centering
     
     try {
+
         const btn = document.getElementById('run-gemini-btn');
         btn.disabled = true;
         btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing...';
 
         log("Starting Gemini Analysis Pipeline...", "system");
 
+
         // 1. Upload File
+        // 1. Upload File
+        stepLabel.innerText = "Uploading video to Context Window...";
         log("Step 1: Uploading video to Gemini...", "ai");
+
         const fileUri = await uploadFileToGemini(apiKey, activeVideoBlob, activeVideoName);
-        log(`Upload complete. URI: ${fileUri}`, "system");
+        // log(`Upload complete. URI: ${fileUri}`, "system");
 
         // 2. Poll for Active State
+        // 2. Poll for Active State
+        stepLabel.innerText = "Processing video content...";
         log("Step 2: Processing video (waiting for state=ACTIVE)...", "ai");
+
         await waitForFileActive(apiKey, fileUri);
         log("Video processing complete.", "success");
 
         // 3. Generate Content
+        // 3. Generate Content
+        stepLabel.innerText = "Consulting Ad Catalog & Persona...";
         log("Step 3: Generating Ad Schedule contextually...", "ai");
+
         const schedule = await generateAdSchedule(apiKey, fileUri, activeProfile);
         
         // 4. Output
+        // 4. Output with Lit HTML
         generatedSchedule = schedule;
-        document.getElementById('json-output').innerText = JSON.stringify(schedule, null, 2);
+        renderSchedule(schedule);
+        
+        generatedSchedule = schedule;
+        renderSchedule(schedule);
+        
+        // Save to Cache
+        localStorage.setItem(cacheKey, JSON.stringify(schedule));
+        
         log(`Success! ${schedule.length} ad slots generated.`, "success");
         document.getElementById('engine-status').innerText = "Analysis Complete. Play video to view ads.";
 
     } catch (error) {
         log(`Error: ${error.message}`, "error");
+        showAlert(`Analysis Failed: ${error.message}`, "danger");
         console.error(error);
+        
+        // Render Error State in Schedule Box too
+        render(html`<div class="alert alert-danger m-3">Analysis Failed. check logs.</div>`, document.getElementById('json-output'));
+
+
     } finally {
+        overlay.classList.add('d-none'); // Hide Overlay
+        overlay.classList.remove('d-flex');
+        
         const btn = document.getElementById('run-gemini-btn');
+
+
         btn.disabled = false;
         btn.innerHTML = '<i class="bi bi-stars me-2"></i>Analyze with Gemini';
     }
@@ -370,38 +513,42 @@ async function generateAdSchedule(apiKey, fileUri, profile) {
     // Optional: Log model usage
     log(`Using Model: ${modelName}`, "system");
 
+    const catalogSummary = adCatalog.map(ad => 
+        `- ID: ${ad.id} | Brand: ${ad.brand} | Title: ${ad.title} | Tags: ${ad.tags.join(', ')} | Desc: ${ad.description}`
+    ).join('\n');
+
     const prompt = `
     You are the AdStream Contextual Engine.
+    
     User Profile: 
-    - Name: ${profile.name}
+    - Name: ${profile.name || "Generic User"}
     - Demographics: ${profile.age || "Unknown"} years old, ${profile.gender || "Unknown"}
-    - Interests: ${profile.interests.join(", ")}
-    - Recent Searches: ${profile.searches ? profile.searches.join(", ") : "None"}
-    - Mood: ${profile.mood}
-    - Buying Pattern: ${profile.pattern}
+    - Interests: ${(profile.interests || []).join(", ")}
+    - Mood: ${profile.mood || "Neutral"}
+    - Buying Pattern: ${profile.pattern || "Clicker"}
+
+    Available Ad Catalog (Choose from these ONLY):
+    ${catalogSummary}
     
     Task: Scan the video for ad placement opportunities aligned with the User Profile.
-    Output: A JSON list of objects.
+    Select specific ads from the catalog that match the context of the video and the user profile.
     
-    CRITICAL INSTRUCTION:
-    1. Use REAL WORLD BRANDS (e.g., Apple, Nike, Coca-Cola, Samsung, Spotify) that match the context.
-    2. detailed 'visual_prompt': A descriptive prompt to generate a high-quality ad image for this brand (e.g., "cinematic shot of an icy cold Coca-Cola bottle on a sunny beach").
+    Output: A JSON list of objects.
     
     Format:
     [
       {
         "timestamp_seconds": number,
-        "duration": number (approx 5-10),
-        "trigger_reason": "string explaining visual match",
-        "real_brand_name": "Brand Name",
-        "visual_prompt": "description of the ad image to generate",
-        "ad_title": "Catchy Headline",
-        "ad_copy": "Persuasive copy",
-        "cta_link": "https://brand-site.com"
+        "ad_id": "string (MUST be one of the IDs from the catalog)",
+        "video_context": "Short description of what is happening in the video scene",
+        "persona_match": "Why this specifically fits the User's demographics/interests",
+        "strategic_reason": "The logic behind placing THIS ad at THIS moment"
       }
     ]
     Return ONLY valid JSON.
     `;
+
+
 
     // 2. Generation Request
     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
@@ -431,12 +578,53 @@ async function generateAdSchedule(apiKey, fileUri, profile) {
     try {
         const text = data.candidates[0].content.parts[0].text;
         const jsonStr = text.replace(/```json/g, '').replace(/```/g, '').trim();
-        return JSON.parse(jsonStr);
+        const rawSchedule = JSON.parse(jsonStr);
+        
+        // Hydrate schedule with full ad details from catalog
+        return rawSchedule.map(item => {
+            const catalogItem = adCatalog.find(ad => ad.id === item.ad_id);
+            if (!catalogItem) return null; // skip invalid IDs
+            return {
+                ...item,
+                ...catalogItem,
+                duration: 30 // Approx duration, or we rely on YT player 'ended' event
+            };
+        }).filter(item => item !== null);
+
     } catch (e) {
         console.error("Failed to parse Gemini response", data);
         throw new Error("Invalid JSON response from Gemini");
     }
 }
+
+function renderSchedule(schedule) {
+    const container = document.getElementById('json-output'); 
+    
+    // Restore styling for code block look
+    container.classList.add('bg-body-secondary', 'p-3', 'rounded'); 
+    container.style.maxHeight = '600px';
+    container.style.overflowY = 'auto'; 
+    
+    if (!schedule || schedule.length === 0) {
+        // Use lit-html to render simple text
+        render(html`<div>No data generated yet.</div>`, container);
+        return;
+    }
+
+    // Render formatted JSON
+    // We use a code block or just text inside the pre tag
+    const jsonString = JSON.stringify(schedule, null, 2);
+    
+    render(html`<code>${jsonString}</code>`, container);
+}
+
+
+function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                               PLAYER UTILS                                 */
@@ -448,75 +636,104 @@ function checkAdSchedule() {
     const video = document.getElementById('main-video');
     const currentTime = video.currentTime;
 
-    // Find active ad
+    // Find active ad that hasn't been played
     const activeAd = generatedSchedule.find(ad => 
+        !ad.hasPlayed && // Check if ad was already played/skipped
         currentTime >= ad.timestamp_seconds && 
-        currentTime < (ad.timestamp_seconds + ad.duration)
+        currentTime < (ad.timestamp_seconds + 30) // Assuming 30s window or duration
     );
 
     if (activeAd) {
-        if (!isAdShowing || currentAd !== activeAd) {
+        if (!isAdShowing) {
             showAd(activeAd);
         }
-        updateAdProgress(activeAd, currentTime);
     } else {
-        if (isAdShowing) {
-            hideAd();
-        }
+        // If we are showing an ad, but no ad matches the current time/played status...
+        // This usually triggers if the 'ad.hasPlayed' becomes true.
+        // We let hideAd handle the cleanup explicitly when called. 
+        // We DO NOT force hideAd here because it might interrupt the video resume logic.
     }
 }
 
+let skipTimerInterval = null;
+
 function showAd(ad) {
+    if(!ytPlayer) {
+        log("YouTube Player not ready!", "error");
+        return;
+    }
+
     isAdShowing = true;
     currentAd = ad;
     
-    const overlay = document.getElementById('ad-overlay');
-    const container = document.querySelector('.ad-content');
+    const mainVideo = document.getElementById('main-video');
+    const playerContainer = document.getElementById('youtube-player');
+    const skipContainer = document.getElementById('skip-ad-container');
+    const skipBtn = document.getElementById('skip-ad-btn');
     
-    // Inject Image if visual_prompt exists
-    if(ad.visual_prompt) {
-        const imgContainer = document.getElementById('ad-image-container');
-        const imgEl = document.getElementById('ad-image');
-        
-        imgContainer.classList.remove('d-none');
-        imgEl.style.opacity = '0.5'; // dimmed while loading
-        
-        // Pollinations.ai API for dynamic generation
-        const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(ad.visual_prompt)}?width=600&height=340&nologo=true&seed=${Math.floor(Math.random()*1000)}`;
-        
-        imgEl.onload = () => { imgEl.style.opacity = '1'; }; // fade in on load
-        imgEl.src = imageUrl;
-        
-    } else {
-        document.getElementById('ad-image-container').classList.add('d-none');
-    }
+    // Pause main video
+    mainVideo.pause();
+    
+    // Show YT Player & Skip Button Container
+    playerContainer.classList.remove('d-none');
+    skipContainer.classList.remove('d-none');
+    
+    // Reset Skip Button
+    skipBtn.disabled = true;
+    skipBtn.innerText = "Skip in 5";
+    
+    let countdown = 5;
+    if(skipTimerInterval) clearInterval(skipTimerInterval);
+    
+    skipTimerInterval = setInterval(() => {
+        countdown--;
+        if(countdown > 0) {
+            skipBtn.innerText = `Skip in ${countdown}`;
+        } else {
+            clearInterval(skipTimerInterval);
+            skipBtn.innerText = "Skip Ad";
+            skipBtn.disabled = false;
+        }
+    }, 1000);
 
-    document.getElementById('ad-brand').innerText = ad.real_brand_name || "Sponsored";
-    document.getElementById('ad-title').innerText = ad.ad_title;
-    document.getElementById('ad-copy').innerText = ad.ad_copy;
-    document.getElementById('ad-cta').href = ad.cta_link;
-    
-    overlay.classList.remove('d-none');
-    // slight delay to allow display:block to apply before opacity transition
-    setTimeout(() => {
-        overlay.classList.add('active');
-    }, 10);
-    
-    log(`Ad Triggered: ${ad.real_brand_name || 'Ad'} - ${ad.ad_title}`, "system");
+    log(`Playing Ad: ${ad.brand} - ${ad.title}`, "system");
+
+    // Load and Play
+    ytPlayer.loadVideoById(ad.youtube_id);
+    ytPlayer.playVideo();
 }
 
 function hideAd() {
+    // IMPORTANT: Mark the current ad as played so checkAdSchedule doesn't find it again immediately
+    if(currentAd) {
+        currentAd.hasPlayed = true; 
+    }
+
     isAdShowing = false;
     currentAd = null;
-    const overlay = document.getElementById('ad-overlay');
-    overlay.classList.remove('active');
-    setTimeout(() => { if(!isAdShowing) overlay.classList.add('d-none'); }, 500);
+    
+    const playerContainer = document.getElementById('youtube-player');
+    const skipContainer = document.getElementById('skip-ad-container');
+    const mainVideo = document.getElementById('main-video');
+    
+    if(skipTimerInterval) clearInterval(skipTimerInterval);
+
+    // Hide YT Player
+    playerContainer.classList.add('d-none');
+    skipContainer.classList.add('d-none');
+    
+    if(ytPlayer && ytPlayer.stopVideo) ytPlayer.stopVideo();
+
+    // Resume Main Video
+    mainVideo.play();
+    
+    log("Ad finished. Resuming content.", "system");
 }
 
 function updateAdProgress(ad, currentTime) {
-    const progress = ((currentTime - ad.timestamp_seconds) / ad.duration) * 100;
-    document.getElementById('ad-progress').style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    // only used for progress bar, leaving empty as YT has its own
 }
+
 
 function log(message, type = "info") {
     const chatBox = document.getElementById('chat-box');
