@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 129,
+    "ad_id": "ad_010",
+    "video_context": "Workers are meticulously preparing to place explosives into the large tree trunk, discussing how to gingerly lower the 'powder' into the hole. The scene emphasizes precision and preparation for a high-impact task.",
+    "persona_match": "While Sarah values 'Mindful' and 'Sustainable Living', the careful planning and execution of a complex and potentially 'extreme' task (demolishing a huge tree with explosives) can appeal to an appreciation for human skill, engineering, and controlled achievement, aligning with the spirit of pushing boundaries seen in the Red Bull Stratos Jump ad.",
+    "strategic_reason": "This moment, where the team handles explosives with precision, parallels the high-stakes and technically demanding nature of an extreme event. Placing the Red Bull 'Stratos Jump' ad here leverages the tension and anticipation of a controlled, powerful action, creating a thematic link to the ad's focus on audacious feats and meticulous preparation.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 209,
+    "ad_id": "ad_010",
+    "video_context": "The loggers are giving the final command ('Give her!') and initiating the detonation of the explosives to fell the massive tree. The scene builds to the dramatic climax of the tree's collapse amidst smoke and debris.",
+    "persona_match": "The raw power and controlled demolition, while not directly 'sustainable,' represent a significant and complex human endeavor. For an 'Ethical Shopper' and 'Mindful' individual, the ad can be framed as appreciating monumental human achievements and the mastery of extreme conditions, much like the Stratos Jump. It's about overcoming challenges on a grand scale.",
+    "strategic_reason": "This is the climactic moment of the video, featuring a large-scale, controlled explosion. The Red Bull 'Stratos Jump' ad, which highlights an extreme and dramatic human achievement, is perfectly positioned here to align with the high-intensity action and the feeling of accomplishment after a complex and dangerous operation.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp_seconds": 70,
+    "ad_id": "ad_007",
+    "video_context": "The discussion revolves around the Epic of Gilgamesh, highlighting its themes of humanity, immortality, heroic deeds, and the 'Hollywood-like' nature of its exciting stories and adventures.",
+    "persona_match": "Mike's interest in Ironman Triathlon and his determined, performance-driven nature strongly align with Nike's message of athletic achievement, pushing limits, and creating a lasting legacy. The cinematic quality of the ad also resonates with the 'Hollywood-like' description of the epic.",
+    "strategic_reason": "To connect the ancient themes of heroic human endeavor and lasting legacy from the Epic of Gilgamesh with modern-day athletic greatness and the pursuit of excellence, directly tapping into Mike's competitive and determined spirit.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 155,
+    "ad_id": "ad_001",
+    "video_context": "The speaker is discussing the 'fireside narrative matter' and the enduring human creative principle behind storytelling, tracing its roots back to early human history and emphasizing the evolution of communication.",
+    "persona_match": "Mike's interests in Biohacking and Recovery Tech suggest an appreciation for innovation and cutting-edge technology. The Apple '1984' commercial represents a monumental moment of technological innovation and a disruptive vision for human potential, aligning with the theme of a 'strong creative principle' emerging in humanity.",
+    "strategic_reason": "To link the fundamental human drive for creativity and the evolution of communication and storytelling (from oral traditions to modern forms) to a pivotal moment in technological innovation, resonating with Mike's forward-thinking and tech-oriented interests.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 310,
+    "ad_id": "ad_010",
+    "video_context": "The conversation shifts to 'people of astounding ability,' mentioning ancient hunters wrestling polar bears and the human capacity for extraordinary feats and daring achievements that become legendary stories.",
+    "persona_match": "This ad directly targets Mike's interests in Ironman Triathlon and Biohacking, which are all about extreme performance, pushing physical and mental boundaries, and achieving the seemingly impossible. His 'Determined' mood and 'Performance Driven' buying pattern are a perfect fit for Red Bull's message of overcoming limits.",
+    "strategic_reason": "To capitalize on the video's theme of exceptional human capabilities and legendary feats, aligning it with a contemporary example of extreme human achievement and peak performance, directly appealing to Mike's high-performance lifestyle and interests.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

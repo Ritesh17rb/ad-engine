@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 40,
+    "ad_id": "ad_007",
+    "video_context": "The discussion focuses on historical figures like Gilgamesh and Alexander the Great, emphasizing how their stories and legacies endure through time, making them 'live on after death.' A statue of Alexander the Great is visually presented.",
+    "persona_match": "While not directly related to her core interests, Sarah's 'Mindful' mood and 'Ethical Shopper' buying pattern could find resonance in aspirational themes of lasting impact, legacy, and the significance of individual actions and achievements, aligning with the ad's message of 'moments shape legacy.'",
+    "strategic_reason": "This placement leverages the podcast's exploration of enduring historical figures and their lasting impact, positioning Nike as a brand associated with creating significant, memorable moments that contribute to one's legacy, thereby connecting to the broader human quest for meaning and lasting influence.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 200,
+    "ad_id": "ad_001",
+    "video_context": "The conversation shifts to 'The Swimming Stags in Lascaux Cave,' discussing early human creative and artistic ability, highlighting the inherent human drive for innovation and expression from ancient times.",
+    "persona_match": "Sarah's 'Mindful' mood and potential appreciation for thoughtful creation and lasting design might find a connection with Apple's iconic innovation, even if the product isn't directly 'sustainable.' The ad itself is a historic piece of marketing, connecting to the discussion of enduring art and human ingenuity.",
+    "strategic_reason": "By placing Apple's iconic '1984' ad, which symbolizes groundbreaking technological innovation, during a segment discussing the dawn of human creativity (cave paintings), the ad subtly bridges the gap between primal human expression and modern technological leaps, suggesting Apple as a continuous force in human ingenuity.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

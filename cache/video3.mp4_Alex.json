@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 78,
+    "ad_id": "ad_010",
+    "video_context": "The witness describes hooded, sickly-faced figures appearing from the dark woods, creating a peak moment of fear and suspense in the narrative.",
+    "persona_match": "Alex, being 22 and 'Excited,' would appreciate the extreme, high-energy content of the Red Bull Stratos Jump ad. His 'Gaming, Esports, Tech' interests often correlate with content that is thrilling and pushes boundaries.",
+    "strategic_reason": "To counter the intense fear with an adrenaline-pumping, extreme sports ad. This provides an immediate shift from dread to excitement, resonating with Alex's 'Excited' mood and impulse buying nature for thrilling experiences.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 145,
+    "ad_id": "ad_002",
+    "video_context": "The interview segment concludes with the investigator emphasizing the extreme scariness of the recounted ghost story, leaving the audience potentially tense or shaken.",
+    "persona_match": "A 22-year-old male interested in Gaming/Esports is likely familiar with viral content and appreciates humor. This iconic, comedic ad provides a strong, positive mood shift after the scary narrative.",
+    "strategic_reason": "To provide a comedic relief and mood reset after a very scary and intense narrative conclusion. This viral, humorous ad can engage Alex's 'Excited' mood and appeal to his impulse buying nature with a memorable, lighthearted brand message.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

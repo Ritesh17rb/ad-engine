@@ -1,0 +1,53 @@
+[
+  {
+    "timestamp_seconds": 40,
+    "ad_id": "ad_007",
+    "video_context": "The speaker introduces Alexander the Great as a historical figure whose legacy and stories continued to 'live after his death' in the world.",
+    "persona_match": "David (45, Male) may appreciate the ad's focus on ambition, achievement, and creating a lasting impact, themes that resonate with the idea of a well-built legacy, even if his interests are home renovation and trucks, which often involve enduring work.",
+    "strategic_reason": "The Nike 'Write the Future' ad directly aligns with the video's discussion of individuals achieving legendary status and shaping a legacy that transcends their lifetime, making it a highly contextual and thematic placement.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 110,
+    "ad_id": "ad_010",
+    "video_context": "The discussion delves into the Epic of Gilgamesh, touching on universal themes of humanity, immortality, and man's place in the hands of the gods.",
+    "persona_match": "David (45, Male, Practical, Value Seeker) might be drawn to the real-world, extreme achievement of the Red Bull Stratos Jump, viewing it as a modern-day epic of human courage and engineering, delivering a high 'value' experience through a remarkable feat.",
+    "strategic_reason": "The Red Bull Stratos Jump, an iconic modern feat of human daring and pushing boundaries, serves as a contemporary parallel to the ancient epic themes of human ambition, confronting the unknown, and achieving the seemingly impossible, providing a relevant and engaging interlude.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 240,
+    "ad_id": "ad_002",
+    "video_context": "An image of people gathered around a campfire is shown, accompanying a discussion about the primal human act of 'fireside narrative' and its role in storytelling and passing down knowledge.",
+    "persona_match": "David's interest in BBQ smoking suggests an appreciation for outdoor gatherings and the communal aspect of fire. The iconic and humorous Old Spice commercial provides a lighthearted, memorable example of cultural storytelling, fitting the 'fireside narrative' theme in a contemporary way.",
+    "strategic_reason": "This ad offers a moment of comedic relief and a widely recognized piece of modern 'storytelling' (a viral commercial) during a segment focused on the fundamental human experience of sharing narratives around a campfire. It provides a contrast while remaining relevant to the broader theme of stories.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

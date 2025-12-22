@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 28,
+    "ad_id": "ad_010",
+    "video_context": "The narrator describes her youth, going camping and exploring a mountain with friends, just before the horrifying discovery of a mutilated lamb.",
+    "persona_match": "Mike's interests in Ironman Triathlon and Biohacking, along with his 'Determined' mood and 'Performance Driven' buying pattern, align with the extreme feats and ambition of the Red Bull Stratos Jump, linking to the initial outdoor exploration.",
+    "strategic_reason": "Placing this ad during the initial description of adventurous outdoor exploration, before the video's darker elements unfold, provides an energetic and aspirational message about pushing limits to a performance-driven user like Mike.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 115,
+    "ad_id": "ad_007",
+    "video_context": "The video shows the hooded, people-ish figures appearing in the dark forest, illuminated by a flashlight. It's a moment of intense suspense and fear.",
+    "persona_match": "Mike's 'Determined' mood and 'Performance Driven' nature, alongside his interest in Ironman Triathlon, suggest an individual who values resilience and overcoming challenges. Nike's 'Write the Future' ad embodies triumph in defining moments.",
+    "strategic_reason": "Inserting a powerful and inspirational ad like Nike's 'Write the Future' at a moment of high tension and fear provides a strong contrast, appealing to Mike's determined mindset by shifting focus from horror to human strength and perseverance.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  }
+]

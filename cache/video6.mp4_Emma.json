@@ -1,0 +1,53 @@
+[
+  {
+    "timestamp_seconds": 8,
+    "ad_id": "ad_010",
+    "video_context": "Two astronauts float in space, looking at Earth, marveling at its beauty and discussing how it makes them want to sing.",
+    "persona_match": "Emma, at 19, with a 'Trendy' mood and 'Social Influence' buying pattern, would likely be drawn to extreme and iconic events like the Red Bull Stratos Jump, which was a major viral and socially discussed moment.",
+    "strategic_reason": "The awe-inspiring view of Earth from space and the dialogue about the 'awesome' world create a perfect lead-in for Red Bull's Stratos Jump ad, which showcases an extreme, record-breaking feat from the edge of space. This aligns with a desire for exciting, shareable experiences for a trend-conscious individual influenced by social buzz.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 37,
+    "ad_id": "ad_005",
+    "video_context": "A live concert is taking place with a performer on stage, engaging with a large and energetic crowd. The scene is vibrant and music-focused.",
+    "persona_match": "Emma's interest in K-Pop highlights her appreciation for music and performance. The Cadbury Gorilla ad is iconic and music-centric, fitting her 'Trendy' mood and 'Social Influence' through its widespread recognition and replay value.",
+    "strategic_reason": "Placing the Cadbury Gorilla ad after a live concert scene capitalizes on the energetic and musical atmosphere. The ad's 'Iconic' and 'Music' tags make it a strong match for Emma's K-Pop interest, appealing to her love for impactful and memorable performances that often go viral and are shared socially.",
+    "id": "ad_005",
+    "title": "Cadbury - Gorilla",
+    "description": "A gorilla plays drums to Phil Collins in a legendary ad.",
+    "brand": "Cadbury",
+    "tags": [
+      "Music",
+      "Iconic"
+    ],
+    "youtube_id": "TnzFRV1LwIo",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 50,
+    "ad_id": "ad_002",
+    "video_context": "People are gathered on a beach at night, watching a spectacular fireworks display over the ocean, enjoying a shared moment of wonder.",
+    "persona_match": "For a 19-year-old with a 'Trendy' mood and 'Social Influence' buying pattern, viral content is highly effective. The Old Spice commercial was a massive viral hit, making it a culturally relevant and shareable piece of media that fits these aspects of Emma's profile.",
+    "strategic_reason": "The shared experience of watching fireworks on a beach transitions smoothly into an ad known for its widespread social impact and virality. The Old Spice ad's 'Comedy' and 'Viral' tags make it an appropriate choice to capture Emma's attention by appealing to content that is frequently shared and discussed within social circles, reinforcing a 'trendy' image.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

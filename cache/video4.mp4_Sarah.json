@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 44,
+    "ad_id": "ad_001",
+    "video_context": "Following the initial reports of Sig's condition and the discussion about checking his vitals, the scene transitions from the ship's interior to external shots of the rough sea and other boats, marking a momentary pause in the immediate crisis dialogue.",
+    "persona_match": "Sarah, with her 'Mindful' mood and 'Ethical Shopper' pattern, might appreciate an ad that, while not directly related to her interests, is a classic and thought-provoking piece of media history. The ad's focus on innovation and breaking from norms aligns with a thoughtful, non-superficial viewing experience.",
+    "strategic_reason": "Placing this iconic, non-aggressive ad during a brief visual transition offers a less jarring break from the intense emergency narrative compared to overtly comedic or extreme sports ads. Its historical significance can resonate with a mindful viewer seeking quality content.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 111,
+    "ad_id": "ad_005",
+    "video_context": "After Clark takes Sig's blood pressure and checks his grip strength, there's a brief black screen transition before more external shots of the ocean, providing a short interval before Clark returns to the phone call.",
+    "persona_match": "Sarah's 'Mindful' mood and general interests, while not directly addressed by a chocolate ad, might find a moment of creative, unexpected joy in the 'Cadbury - Gorilla' commercial. It's an iconic ad known for its positive and unique artistic expression, which can offer a pleasant, non-offensive reprieve.",
+    "strategic_reason": "In the midst of a high-stress medical emergency, this ad provides a unique, feel-good, and non-intrusive auditory and visual break. Its creative and slightly whimsical nature avoids the heavy or aggressive tones of other ads, offering a mental 'reset' that aligns with a 'mindful' approach to content consumption, without trivializing the video's serious theme.",
+    "id": "ad_005",
+    "title": "Cadbury - Gorilla",
+    "description": "A gorilla plays drums to Phil Collins in a legendary ad.",
+    "brand": "Cadbury",
+    "tags": [
+      "Music",
+      "Iconic"
+    ],
+    "youtube_id": "TnzFRV1LwIo",
+    "duration": 30
+  }
+]

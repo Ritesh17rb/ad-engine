@@ -1,0 +1,53 @@
+[
+  {
+    "timestamp_seconds": 1,
+    "ad_id": "ad_010",
+    "video_context": "Two astronauts are shown floating in space, with Earth visible in the background, conveying a sense of wonder, vastness, and human exploration beyond limits.",
+    "persona_match": "Mike's interest in 'Biohacking' and 'Recovery Tech' aligns with pushing human potential and exploring extremes. His 'Determined' mood and 'Performance Driven' buying pattern resonate with the grand scale and boundary-pushing nature of space exploration.",
+    "strategic_reason": "This moment visually captures an extreme environment and an ambitious human endeavor. The Red Bull Stratos Jump ad perfectly mirrors this theme of extreme performance, high-stakes events, and defying limits, directly appealing to Mike's performance-oriented mindset.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 25,
+    "ad_id": "ad_007",
+    "video_context": "A person is seen actively surfing in the ocean, demonstrating physical agility, endurance, and engagement with natural elements.",
+    "persona_match": "This scene directly connects with Mike's primary interest in 'Ironman Triathlon', which involves swimming and high physical endurance. His 'Performance Driven' buying pattern makes him receptive to sports brands that promote athletic achievement and a determined spirit.",
+    "strategic_reason": "The visual of an athlete engaged in a demanding sport provides a strong contextual link to Nike's 'Write the Future' ad, which celebrates sports, performance, and legacy. This placement is ideal to capture Mike's attention for high-performance athletic gear.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 53,
+    "ad_id": "ad_010",
+    "video_context": "A person is dramatically leaping into a dark, massive chasm, suggesting an act of extreme bravery, adventure, and confronting immense challenges.",
+    "persona_match": "This high-adrenaline scene is a strong match for Mike's 'Determined' mood and 'Performance Driven' buying pattern. It also resonates with the adventurous and limit-testing aspects often associated with 'Ironman Triathlon' and 'Biohacking'.",
+    "strategic_reason": "This visual emphasizes extreme action and daring, which is a core theme of the Red Bull brand and their Stratos Jump ad. Placing the ad here reinforces Red Bull's association with pushing boundaries and extreme achievements, aligning with Mike's interests in high performance and thrilling endeavors.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

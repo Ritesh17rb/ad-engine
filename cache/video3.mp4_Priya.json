@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 31,
+    "ad_id": "ad_001",
+    "video_context": "The witness begins recounting a past traumatic experience in the forest, just before the first disturbing flashback of finding a mutilated lamb.",
+    "persona_match": "Priya, with her interest in Venture Capital and a 'Quality First' buying pattern, would appreciate Apple's iconic 1984 commercial, which embodies innovation, high production quality, and a groundbreaking market entry. Its dramatic, cinematic style also fits her 'Sophisticated' mood.",
+    "strategic_reason": "This placement occurs after the narrative setup but before the deep dive into the horror elements, providing a sophisticated and impactful commercial break that contrasts with the suspense yet resonates with the user's appreciation for innovation and quality.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 116,
+    "ad_id": "ad_007",
+    "video_context": "The narrator has just described escaping the hooded figures in a truck, a moment of intense flight and survival, transitioning to a later, equally terrifying event.",
+    "persona_match": "While not explicitly interested in sports, Priya's 'Sophisticated' mood and 'Quality First' buying pattern suggest an appreciation for cinematic, high-production-value ads. The theme of 'moments shaping legacy' can also appeal to a discerning individual, resonating with the impactful and life-altering experience being described in the video.",
+    "strategic_reason": "Positioning this cinematic ad after the climax of the direct confrontation and escape provides a powerful, high-quality interlude. It allows a moment for the viewer to process the intense narrative segment before the final, chilling twist of the story, maintaining a sophisticated viewing experience.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  }
+]

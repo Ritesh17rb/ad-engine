@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp_seconds": 122,
+    "ad_id": "ad_002",
+    "video_context": "The speaker describes the Epic of Gilgamesh as 'very Hollywood-y' and incorporating 'lots of interesting and exciting stories,' bridging ancient epics to modern entertainment narratives.",
+    "persona_match": "Emma's 'Trendy' mood and 'Social Influence' buying pattern are a strong match for a 'Viral' and 'Comedy' ad. The 'Hollywood-y' description of stories creates a perfect modern hook.",
+    "strategic_reason": "Capitalize on the speaker's descriptor of ancient tales as 'Hollywood-y.' This provides a lighthearted, modern contrast to the historical context, suitable for a young, trendy user. The virality of the Old Spice ad directly leverages Emma's 'Social Influence' buying pattern.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 245,
+    "ad_id": "ad_005",
+    "video_context": "The video shows people gathered around a campfire, and the discussion includes 'twerps with a guitar' as a modern example of communal storytelling and music.",
+    "persona_match": "Emma's interest in 'K-Pop' (music) and her 'Trendy' mood align perfectly with a music-centric, iconic ad like Cadbury Gorilla. The 'social influence' aspect also fits with popular, shared cultural experiences.",
+    "strategic_reason": "The video's visual and thematic transition to a campfire with a direct mention of music and shared experience provides a strong contextual cue. The Cadbury Gorilla ad is recognized for its music and unique creativity, fitting Emma's 'trendy' and 'social influence' traits.",
+    "id": "ad_005",
+    "title": "Cadbury - Gorilla",
+    "description": "A gorilla plays drums to Phil Collins in a legendary ad.",
+    "brand": "Cadbury",
+    "tags": [
+      "Music",
+      "Iconic"
+    ],
+    "youtube_id": "TnzFRV1LwIo",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 355,
+    "ad_id": "ad_001",
+    "video_context": "The conversation shifts to 'astounding ability' in ancient cave paintings and the function of stories to pass down knowledge about 'how we invented the wheel' and human ingenuity.",
+    "persona_match": "Emma, as a 19-year-old, is likely tech-savvy and trendy. While an older ad, Apple's '1984' commercial represents a monumental 'Innovation' and 'Technology' breakthrough, aligning with her 'Trendy' mood and appreciating 'astounding ability' in historical trend-setting.",
+    "strategic_reason": "The discussion about creative pioneers and the evolution of human innovation (from ancient art to inventions) provides a sophisticated lead-in for a brand synonymous with innovation like Apple. The '1984' ad was a groundbreaking piece of advertising and technology, resonating with the video's theme of lasting impact through creative expression.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

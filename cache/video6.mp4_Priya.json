@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 5,
+    "ad_id": "ad_010",
+    "video_context": "Two astronauts are shown floating in deep space next to Earth, with one looking intently at our planet reflected in the other's helmet visor, conveying a profound sense of awe and the vastness of space.",
+    "persona_match": "Priya's 'Sophisticated' mood and 'Quality First' buying pattern align with the groundbreaking and aspirational nature of Felix Baumgartner's Red Bull Stratos Jump. Her interest in 'Venture Capital' also resonates with daring feats that push human and technological boundaries.",
+    "strategic_reason": "This placement offers direct contextual relevance to space exploration and human achievement, perfectly framing the Red Bull Stratos Jump as an ultimate, high-quality, and innovative endeavor that would appeal to Priya's appreciation for impactful projects and sophisticated experiences.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 20,
+    "ad_id": "ad_001",
+    "video_context": "A wide, stunning night view of the Hong Kong skyline with numerous brightly lit skyscrapers reflects off the water, symbolizing modern technological advancement, economic power, and global connection.",
+    "persona_match": "Priya's strong interest in 'Venture Capital' makes her an ideal target for Apple's iconic '1984' commercial, which represents a historical moment of technological disruption and innovation. Her 'Quality First' buying pattern and 'Sophisticated' mood appreciate the enduring artistic and cultural significance of such a landmark advertisement, potentially aligning with her 'Fine Art' interest due to its iconic status.",
+    "strategic_reason": "The vibrant cityscape provides a fitting backdrop for an ad celebrating technological revolution and visionary branding like Apple's '1984'. It connects directly to the themes of innovation and impactful design that are relevant to Priya's professional and personal interests.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

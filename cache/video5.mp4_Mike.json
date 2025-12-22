@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 135,
+    "ad_id": "ad_010",
+    "video_context": "The video shows the intense moments leading up to and including the precise, powerful explosion of a massive tree, representing a high-stakes, extreme operation by the loggers.",
+    "persona_match": "Mike's interests in Ironman Triathlon and Biohacking, coupled with his 'Determined' mood and 'Performance Driven' buying pattern, strongly align with the extreme nature and pursuit of peak performance showcased in the Red Bull Stratos Jump.",
+    "strategic_reason": "Placing an ad for an extreme event like the Red Bull Stratos Jump immediately after the dramatic tree explosion capitalizes on the audience's heightened excitement and appreciation for challenging feats and successful execution.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 170,
+    "ad_id": "ad_007",
+    "video_context": "The loggers are observing the successfully felled tree, assessing the outcome of their dangerous and complex operation, and discussing the value of their achievement (saving 'good wood'). It's a moment of looking at the results of their determination.",
+    "persona_match": "Mike's interest in Ironman Triathlon and his 'Determined' mood resonate with Nike's 'Write the Future' theme, which often highlights overcoming challenges and leaving a legacy through peak athletic performance. The successful completion of a difficult task in the video mirrors this theme.",
+    "strategic_reason": "Placing the Nike ad during a moment of successful completion and assessment of a major, challenging task aligns with the ad's message of hard work leading to tangible results and shaping a legacy, reinforcing the idea of performance and achievement.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  }
+]

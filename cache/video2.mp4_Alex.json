@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp_seconds": 5,
+    "ad_id": "ad_001",
+    "video_context": "The speaker transitions from podcast intro to discussing literature, specifically mentioning the Epic of Gilgamesh.",
+    "persona_match": "Alex's interest in 'Tech' aligns with Apple's iconic commercial introducing Macintosh as a groundbreaking technological innovation. The ad's 'Super Bowl' association and impactful nature could appeal to his 'Excited' mood and 'Impulse Buyer' tendencies.",
+    "strategic_reason": "Placing an iconic and technologically significant ad early captures attention, resonates with Alex's tech interest, and sets a tone of innovation before the deep dive into ancient history.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 237,
+    "ad_id": "ad_010",
+    "video_context": "The discussion shifts to the 'fireside narrative' and the deep origins of human storytelling, illustrated with people around a bonfire, celebrating human creativity and legendary deeds.",
+    "persona_match": "Alex's interests in 'Gaming, Esports, Tech' often involve pushing boundaries and high performance. The 'Extreme, Live Event' nature of the Red Bull Stratos Jump ad, highlighting an incredible human feat, aligns with an 'Excited' mood and appreciation for innovation and challenging limits.",
+    "strategic_reason": "This placement leverages the video's theme of human achievement and narrative origins, offering a modern parallel to the ancient stories discussed. Red Bull's high-energy ad aligns with Alex's excited mood and interests in fast-paced, high-stakes experiences common in gaming/esports.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 359,
+    "ad_id": "ad_007",
+    "video_context": "The speaker is discussing the 'human stock' and the existence of individuals with 'astounding ability' throughout history, leading into the topic of prehistoric cave paintings as examples of early creative genius.",
+    "persona_match": "For someone interested in 'Gaming, Esports,' the idea of 'shaping legacy' through competitive moments and peak performance, as depicted in the Nike ad, is highly relevant. The 'Cinematic' quality and aspirational message would appeal to Alex's 'Excited' mood and 'Impulse Buyer' pattern.",
+    "strategic_reason": "This ad reinforces the theme of exceptional human talent and legacy-building, connecting the 'genius' of ancient artists and legendary figures to modern athletic excellence, a concept that would resonate strongly with an esports enthusiast.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  }
+]

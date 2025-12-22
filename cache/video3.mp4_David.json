@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 53,
+    "ad_id": "ad_002",
+    "video_context": "Jennifer Capler describes finding a cabin filled with bones and items suggesting witchcraft, recounting the unsettling discovery to the Ghost Adventures team.",
+    "persona_match": "David, being a 45-year-old male, might appreciate the classic, humorous nature of the Old Spice ad, offering a lighthearted break from the tension. The ad targets a practical need (grooming) with a viral, memorable approach, appealing to a 'value seeker' who appreciates effective and well-known products.",
+    "strategic_reason": "Placing a humorous ad at this point provides a strategic tension release after the unsettling description of the cabin, before the flashback to the more intense campfire and chase scenes begin. It re-engages the viewer with a contrasting mood, aligning with David's practical and value-seeking persona by presenting a well-known product with a clear brand message.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 115,
+    "ad_id": "ad_010",
+    "video_context": "The scene depicts a frantic escape in a pickup truck through the dark forest, with the passengers looking terrified. The truck acts as a rescuer, speeding away from mysterious hooded figures.",
+    "persona_match": "This ad directly leverages David's interest in 'Trucks' as a powerful and practical machine for navigating challenging situations (like escaping danger). The 'Red Bull - Stratos Jump' ad, focusing on an extreme and iconic achievement, would appeal to a 45-year-old male interested in action, engineering, and a brand associated with pushing boundaries, aligning with a practical and potentially adventurous side of his persona.",
+    "strategic_reason": "This placement directly capitalizes on the strong visual and narrative presence of a truck in a high-stakes, action-oriented scene. Following the tense escape, the Red Bull ad offers a transition from one form of 'extreme' (survival) to another (human achievement), effectively linking the emotional intensity of the video with the ad's core message, making it highly relevant to David's truck interest.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

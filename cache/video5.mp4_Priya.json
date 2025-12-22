@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 72,
+    "ad_id": "ad_001",
+    "video_context": "An animated sequence visually demonstrates the precise plan to use explosives to remove a difficult tree snag, showing engineering and strategic execution.",
+    "persona_match": "Priya's interest in 'Venture Capital' and 'Quality First' aligns with the strategic planning, innovative approach, and clean, successful execution demonstrated. The concept of 'innovation' is a strong match for her interests.",
+    "strategic_reason": "The ad highlights 'Technology' and 'Innovation', directly aligning with the video segment showing the technical planning of an explosive tree removal. Apple's '1984' ad is an iconic representation of innovation and disruption, appealing to Priya's sophisticated and quality-first preferences.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 158,
+    "ad_id": "ad_010",
+    "video_context": "A massive tree snag is successfully blown apart by explosives, creating a powerful, dramatic, and impactful event with significant dust and debris.",
+    "persona_match": "Priya's interest in 'Venture Capital' could be engaged by the high-stakes, well-executed, and impactful nature of the explosion. Her 'Sophisticated' mood and 'Quality First' buying pattern would appreciate the grand scale and professional execution of such an 'Extreme' event.",
+    "strategic_reason": "The real-life tree explosion is an 'Extreme' and 'Live Event' moment, perfectly mirroring the themes of the Red Bull Stratos Jump ad, which showcases extreme human achievement and precision. This provides a strong contextual link and taps into the excitement and awe of the video's climax.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

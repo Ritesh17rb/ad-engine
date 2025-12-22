@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 118,
+    "ad_id": "ad_007",
+    "video_context": "The loggers have just finished preparing the explosives in the tree snag and are getting into their trucks, creating a moment of calm anticipation before the blast.",
+    "persona_match": "Emma's interest in 'Streetwear' directly aligns with Nike, a leading brand in this fashion category. The ad's cinematic and aspirational tone resonates with her 'Trendy' mood.",
+    "strategic_reason": "Placing an ad for a globally recognized and aspirational brand like Nike during a brief lull before a dramatic event can effectively capture Emma's attention. The brand's strong connection to streetwear ensures high relevance to her personal interests, despite the unrelated video content.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 158,
+    "ad_id": "ad_002",
+    "video_context": "Following the intense explosion of the tree snag, the loggers survey the results amidst the foggy, post-blast environment.",
+    "persona_match": "The Old Spice 'The Man Your Man Could Smell Like' commercial is celebrated for its viral humor and widespread social sharing, which strongly aligns with Emma's 'Social Influence' buying pattern and 'Trendy' mood, as viral content is often a key part of peer-group discussions.",
+    "strategic_reason": "The iconic, comedic, and memorable nature of the Old Spice ad offers a refreshing and engaging break after the high-stakes, action-oriented segment of the video. Its viral appeal is specifically chosen to tap into Emma's 'Social Influence' buying behavior and 'Trendy' preferences.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

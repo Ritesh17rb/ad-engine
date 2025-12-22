@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 15,
+    "ad_id": "ad_010",
+    "video_context": "The video introduces a fox in a vast, snowy landscape, highlighting its 'amazing set of skills' for survival in challenging environments.",
+    "persona_match": "David, being 'Practical' and a 'Value Seeker', would appreciate displays of exceptional skill and determination. The 'Extreme, Live Event' tags of the Red Bull ad resonate with extraordinary feats, paralleling the fox's remarkable natural abilities.",
+    "strategic_reason": "This placement connects the idea of the fox's extraordinary, almost unbelievable natural abilities in a challenging environment with the extreme and groundbreaking nature of Red Bull's Stratos Jump, both showcasing pinnacle achievements and determination.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 120,
+    "ad_id": "ad_001",
+    "video_context": "The narrator explains the scientific marvel behind the fox's successful hunting, revealing its ability to 'home in on the magnetic field of the planet' and use complex 'math' for precise trajectory, akin to missile guidance.",
+    "persona_match": "David's 'Practical' and 'Value Seeker' traits would appreciate the efficiency, precision, and intelligent 'design' demonstrated by the fox's advanced hunting method. The ad's 'Technology, Innovation' tags align perfectly with the scientific explanation of the fox's advanced, almost technological, navigation.",
+    "strategic_reason": "The fox's sophisticated, 'technological' use of the Earth's magnetic field for precise hunting aligns directly with the themes of groundbreaking technology and innovation celebrated in Apple's iconic '1984' commercial, suggesting superior intelligence and capability.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

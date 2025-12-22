@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 112,
+    "ad_id": "ad_010",
+    "video_context": "The video transitions from the tense medical situation inside the boat to dynamic, wide shots of the fishing vessel battling heavy waves on the open sea, emphasizing the harsh environment.",
+    "persona_match": "Alex, being 22, male, and in an 'Excited' mood, would likely be drawn to the high-energy and extreme nature of the Red Bull Stratos Jump. His interest in 'Gaming' and 'Esports' often aligns with an appreciation for high stakes, adrenaline, and impressive feats.",
+    "strategic_reason": "This placement provides a stark, exhilarating contrast to the distressing medical emergency, offering Alex a moment of high-octane excitement. It leverages the sudden visual dynamism of the rough seas to smoothly transition into another visually powerful, extreme event, appealing to his 'Impulse Buyer' trait with a thrilling, short ad.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 176,
+    "ad_id": "ad_007",
+    "video_context": "The video concludes with the deckhand revealing the captain's decision to deny contacting the Coast Guard for an airlift, despite the critical medical situation. The mood is serious, frustrating, and uncertain.",
+    "persona_match": "Alex's interest in 'Esports' strongly aligns with the competitive, aspirational, and 'Cinematic' themes of a Nike sports ad. The 'Excited' mood also matches the high-energy nature of a sports commercial that celebrates achievement and pushing limits.",
+    "strategic_reason": "Placing a Nike ad here serves as a powerful and motivating closing after the intense and somewhat deflating narrative. A Nike commercial, with its themes of aspiration and overcoming challenges, can leave Alex with an energetic and inspiring feeling, contrasting effectively with the previous somber and frustrating note. This is also a common and effective placement for a commercial break at the end of content.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  }
+]

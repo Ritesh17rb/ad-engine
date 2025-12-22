@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 8,
+    "ad_id": "ad_010",
+    "video_context": "Two astronauts float in space, looking at Earth, with reflections of the planet in their visors. They are heard conversing about the beauty and wonder of the view.",
+    "persona_match": "Alex's interest in 'Tech' and an 'Excited' mood, combined with his age, aligns well with extreme, high-tech feats. The visual of space naturally leads to an interest in space-related or extreme adventures.",
+    "strategic_reason": "Direct contextual relevance with the space setting and theme of extreme human achievement. The Red Bull Stratos Jump ad, featuring a space jump, is a perfect visual and thematic match for the video's opening scene and Alex's adventurous persona.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 51,
+    "ad_id": "ad_001",
+    "video_context": "Stephen Hawking is shown in his electric wheelchair in a grand, empty hall. This follows a montage of global wonders and human innovation/exploration.",
+    "persona_match": "Alex's core interest in 'Tech' is directly addressed by Apple's iconic '1984' commercial, which championed innovation and challenged the status quo. The intellectual presence of Stephen Hawking reinforces a connection to groundbreaking technology and visionary thinking.",
+    "strategic_reason": "While not a direct visual match, the preceding montage of diverse wonders and the intellectual gravitas of Stephen Hawking create a strong thematic link to 'Innovation' and 'Technology'. This placement aims to tap into Alex's tech interests during a moment that celebrates human ingenuity and 'The World is Just Awesome' theme.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

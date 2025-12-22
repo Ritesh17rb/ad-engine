@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 40,
+    "ad_id": "ad_002",
+    "video_context": "The deckhand, Clark, is on the phone with a cardiology specialist, discussing the captain's unresponsive state. He's about to go check on the captain, creating a brief transition moment in the scene.",
+    "persona_match": "Emma, at 19, is likely familiar with viral content and humor that trends on social media. The Old Spice ad was a massive cultural phenomenon, perfectly aligning with her 'Social Influence' and 'Trendy' interests.",
+    "strategic_reason": "Placing a humor-based, widely recognized viral ad here provides a distinct tonal shift and a momentary escape from the video's serious medical emergency, tapping into Emma's interest in popular, shareable content during a natural pause in the narrative.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 110,
+    "ad_id": "ad_010",
+    "video_context": "Following the discovery of the captain's low blood pressure and high pulse, Clark confirms the vital signs to the specialist and leaves the captain's cabin. The scene cuts to turbulent ocean waters, highlighting the dangerous environment.",
+    "persona_match": "The Red Bull Stratos Jump embodies extreme achievement and a globally celebrated live event, resonating with Emma's 'Trendy' mood and 'Social Influence' buying pattern. Red Bull is also a brand popular among young, active, and trend-conscious individuals.",
+    "strategic_reason": "This placement offers a powerful contrast to the current high-stakes situation on the boat. It provides an inspiring, visually dynamic ad about pushing human limits, which can be seen as 'trendy' and exciting, offering an aspirational moment during a serious lull in the unfolding crisis.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

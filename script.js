@@ -1,12 +1,12 @@
 
 
+
 import { adCatalog } from './ad_catalog.js';
 import { html, render } from 'https://cdn.jsdelivr.net/npm/lit-html@3.1.0/+esm';
 
 let isAdShowing = false;
 let currentAd = null;
 let ytPlayer = null;
-
 
 
 // Active Session State
@@ -20,7 +20,7 @@ let generatedSchedule = [];
 // --- Configuration & State ---
 let APP_CONFIG = {
     apiKey: localStorage.getItem('GEMINI_API_KEY') || '',
-    model: localStorage.getItem('GEMINI_MODEL') || 'gemini-1.5-flash-001'
+    model: localStorage.getItem('GEMINI_MODEL') || 'gemini-2.5-flash'
 };
 const CACHE_KEY_PREFIX = 'ADSTREAM_CACHE_v2_';
 
@@ -31,34 +31,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiInput = document.getElementById('geminiApiKeyInput');
     const modelInput = document.getElementById('geminiModelInput');
     
-    if(APP_CONFIG.apiKey) apiInput.value = APP_CONFIG.apiKey;
-    if(APP_CONFIG.model) modelInput.value = APP_CONFIG.model;
+    if(apiInput) apiInput.value = APP_CONFIG.apiKey;
+    if(modelInput && APP_CONFIG.model) modelInput.value = APP_CONFIG.model;
 
     // 2. Save Config Handler
-    document.getElementById('saveConfigBtn').addEventListener('click', () => {
-        const newKey = apiInput.value.trim();
-        const newModel = modelInput.value.trim();
-        
-        if(!newKey) {
-            alert("Please enter a valid API Key.");
-            return;
-        }
+    const saveBtn = document.getElementById('saveConfigBtn');
+    if(saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            const newKey = apiInput.value.trim();
+            const newModel = modelInput.value.trim();
+            
+            if(!newKey) {
+                alert("Please enter a valid API Key.");
+                return;
+            }
 
-        APP_CONFIG.apiKey = newKey;
-        APP_CONFIG.model = newModel;
-        
-        localStorage.setItem('GEMINI_API_KEY', newKey);
-        localStorage.setItem('GEMINI_MODEL', newModel);
-        
-        // Hide Modal
-        const modal = bootstrap.Modal.getInstance(document.getElementById('configModal'));
-        modal.hide();
-        
-        showAlert("Settings saved successfully!", "success");
-    });
+            APP_CONFIG.apiKey = newKey;
+            APP_CONFIG.model = newModel;
+            
+            localStorage.setItem('GEMINI_API_KEY', newKey);
+            localStorage.setItem('GEMINI_MODEL', newModel);
+            
+            // Hide Modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('configModal'));
+            modal.hide();
+            
+            showAlert("Settings saved successfully!", "success");
+        });
+    }
 
-    // 2. Set Custom Persona Button
-    document.getElementById('set-custom-persona-btn').addEventListener('click', () => {
+    // 2. Set Custom Persona Button (Legacy/Removed)
+    const customBtn = document.getElementById('set-custom-persona-btn');
+    if(customBtn) {
+        customBtn.addEventListener('click', () => {
         const name = document.getElementById('custom-name').value;
         const age = document.getElementById('custom-age').value;
         const gender = document.getElementById('custom-gender').value;
@@ -89,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
            log("New profile selected. Ready to re-analyze.", "system"); 
         }
     });
+    }
 
     // Toggle Password Visibility in Modal
     document.getElementById('toggleKeyVisibilityModal').addEventListener('click', function() {
@@ -165,7 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'controls': 0, 
                 'rel': 0,
                 'showinfo': 0,
-                'modestbranding': 1
+                'modestbranding': 1,
+                'origin': window.location.origin
             },
             events: {
                 'onStateChange': onPlayerStateChange
@@ -219,12 +226,12 @@ function showAlert(message, type = 'danger') {
 async function selectVideoSource(cardElement) {
     // 1. Highlight UI
     document.querySelectorAll('.video-card').forEach(c => {
-        c.classList.remove('border-primary', 'bg-light');
+        c.classList.remove('border-primary', 'bg-primary-subtle');
         c.querySelector('button').className = 'btn btn-outline-secondary w-100 select-video-btn';
         c.querySelector('button').innerText = "Load Video";
     });
     
-    cardElement.classList.add('border-primary', 'bg-light');
+    cardElement.classList.add('border-primary', 'bg-primary-subtle');
     const btn = cardElement.querySelector('button');
     btn.className = 'btn btn-primary w-100 fw-bold';
     btn.innerText = "Active";
@@ -250,9 +257,14 @@ async function loadVideoContent(videoPath) {
     
     // Clear previous schedule for THIS video
     generatedSchedule = [];
+    clearLogs();
     
     // reset state
     render(html`<div class="text-muted p-3">Video changed. Ready to analyze.</div>`, document.getElementById('json-output'));
+    document.getElementById('engine-status').innerText = "Waiting for analysis...";
+    document.getElementById('ad-indicators-container').classList.add('d-none');
+    document.getElementById('engine-status').innerText = "Waiting for analysis...";
+    document.getElementById('ad-indicators-container').classList.add('d-none');
 
 
     // OPTIMIZATION: Set src immediately for instant playback perception
@@ -265,7 +277,7 @@ async function loadVideoContent(videoPath) {
         
         // Fetch blob in background for Gemini (silent)
         const response = await fetch(videoPath);
-        if (!response.ok) throw new Error(`Failed to load video file: ${response.statusText}`);
+        if (!response.ok) throw new Error(`Failed to load video file: ${response.statusText} (Ensure file exists in /videos/)`);
         activeVideoBlob = await response.blob();
         
         document.getElementById('video-loading-spinner').classList.add('d-none');
@@ -282,12 +294,12 @@ async function loadVideoContent(videoPath) {
 async function selectScenario(cardElement) {
     // Highlight UI
     document.querySelectorAll('.scenario-card').forEach(c => {
-        c.classList.remove('border-primary', 'bg-light');
+        c.classList.remove('border-primary', 'bg-primary-subtle');
         c.querySelector('button').className = 'btn btn-outline-primary w-100 select-scenario-btn';
         c.querySelector('button').innerText = c.querySelector('button').innerText.replace('Selected', 'Select');
     });
     
-    cardElement.classList.add('border-primary', 'bg-light');
+    cardElement.classList.add('border-primary', 'bg-primary-subtle');
     const btn = cardElement.querySelector('button');
     btn.className = 'btn btn-primary w-100 fw-bold';
     btn.innerText = "Selected";
@@ -308,7 +320,13 @@ async function selectScenario(cardElement) {
     const demoEl = document.getElementById('active-demographics');
     if(demoEl) demoEl.innerText = `${activeProfile.age || '?'} Years • ${activeProfile.gender || 'Unknown'} • ${activeProfile.mood || 'Neutral'}`;
 
-    
+    // RESET STATE for new persona
+    generatedSchedule = [];
+    clearLogs();
+    render(html`<div class="text-muted p-3">Persona changed. Ready to analyze.</div>`, document.getElementById('json-output'));
+    document.getElementById('engine-status').innerText = "Waiting for analysis...";
+    document.getElementById('ad-indicators-container').classList.add('d-none');
+
     // We do NOT change the video here anymore. Video and Persona are independent.
     // If interface is hidden (user selected persona first), show it?
     // Actually, user might want to pick video next. 
@@ -330,272 +348,132 @@ async function selectScenario(cardElement) {
 /* -------------------------------------------------------------------------- */
 
 async function runGeminiAnalysis() {
-    const apiKey = APP_CONFIG.apiKey;
-    if (!apiKey) {
-        // Open Modal if no key
-        const modal = new bootstrap.Modal(document.getElementById('configModal'));
-        modal.show();
-        showAlert("Please configure your Gemini API Key first.", "warning");
-        return;
-    }
-
-    if (!activeVideoBlob) {
-        showAlert("Video not loaded successfully. Cannot analyze.", "danger");
+    // 1. Validation (Relaxed: No API Key check needed anymore)
+    if (!activeVideoPath) { // Check path instead of blob, as we don't need to upload
+        showAlert("Video not loaded. Please select a video.", "danger");
         return;
     }
 
     if (!activeProfile || !activeProfile.name) {
         showAlert("Please select a Target Persona to analyze for.", "warning");
-        // Scroll to persona selection
         document.querySelector('.scenario-card')?.scrollIntoView({ behavior: 'smooth' });
         return;
     }
 
-
-    // reset state
+    // Reset State
     generatedSchedule = [];
     clearLogs();
     
-    // Initial status render
-    const scheduleContainer = document.getElementById('json-output');
-    render(html`<div class="text-muted p-3"><span class="spinner-border spinner-border-sm me-2"></span>Processing...</div>`, scheduleContainer);
+    // UI Feedback
+    const scheduleContainer = document.getElementById('JSON-output'); // ensure ID matches, often 'json-output'
+    const statusEl = document.getElementById('engine-status');
+    // element ID in HTML might be 'json-output', let's use the one from existing code which was 'json-output'
+    // Actually the previous code used `document.getElementById('json-output')`. I should stick to that.
     
-    // Check Cache First
-    const cacheKey = `${CACHE_KEY_PREFIX}${activeVideoName}_${activeProfile.name}`;
-    const cachedData = localStorage.getItem(cacheKey);
+    const outputContainer = document.getElementById('json-output');
+    render(html`<div class="text-muted p-3"><span class="spinner-border spinner-border-sm me-2"></span>Loading cached analysis...</div>`, outputContainer);
     
-    if (cachedData) {
-        log("Cache Hit! Loading saved analysis...", "success");
-        const schedule = JSON.parse(cachedData);
-        generatedSchedule = schedule;
-        renderSchedule(schedule);
-        document.getElementById('engine-status').innerText = "Loaded from Cache. Ready to play.";
+    // 2. Load from Static Cache
+    // We assume the file structure is flat in ./cache/ or matching the local setup
+    const fileName = `${activeVideoName}_${activeProfile.name}.json`;
+    const cacheUrl = `./cache/${fileName}`; 
+    
+    log(`Fetching static analysis: ${cacheUrl}...`, "system");
+    
+    try {
+        const response = await fetch(cacheUrl);
         
-        // Ensure overlay is hidden if it was somehow shown
-        document.getElementById('analysis-overlay').classList.add('d-none');
-        document.getElementById('analysis-overlay').classList.remove('d-flex');
+        if (!response.ok) {
+            throw new Error(`Analysis not found for this Video + Persona combination. (Checked: ${fileName})`);
+        }
+        
+        const cachedData = await response.json();
+        
+        // Success
+        log("Analysis loaded successfully.", "success");
+        generatedSchedule = cachedData;
+        renderSchedule(cachedData);
+        renderAdIndicators(cachedData); 
+        statusEl.innerText = "Analysis Loaded (Static).";
+        
+    } catch (e) {
+        console.warn("Cache load failed", e);
+        log(`Error: ${e.message}`, "error");
+        statusEl.innerText = "Analysis Failed.";
+        
+        render(html`
+            <div class="alert alert-warning m-3">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                <strong>No Data Found:</strong><br>
+                Could not find pre-calculated results for:<br>
+                <em>Video: ${activeVideoName}</em><br>
+                <em>Persona: ${activeProfile.name}</em><br>
+                <br>
+                <small class="text-muted">Since this is a static demo, only specific combinations are available.</small>
+            </div>
+        `, outputContainer);
+    }
+}
+
+
+
+
+function renderSaveButton(data, filename) {
+    const container = document.getElementById('json-output');
+    // Append a save button at the top
+    const saveBtn = document.createElement('button');
+    saveBtn.className = 'btn btn-sm btn-outline-success mb-2 float-end';
+    saveBtn.innerHTML = '<i class="bi bi-download me-1"></i>Save for Cache';
+    saveBtn.onclick = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+        const a = document.createElement('a');
+        a.href = dataStr;
+        a.download = filename;
+        a.click();
+    };
+    
+    // container is a PRE tag, might be messy to append.
+    // Let's insert before.
+    container.parentNode.insertBefore(saveBtn, container);
+}
+
+
+function renderAdIndicators(schedule) {
+    const container = document.getElementById('ad-indicators-container');
+    const list = document.getElementById('ad-indicators-list');
+    
+    if(!schedule || schedule.length === 0) {
+        container.classList.add('d-none');
         return;
     }
 
-    // Show Analysis Overlay with Flex for Centering
-    const overlay = document.getElementById('analysis-overlay');
-    const stepLabel = document.getElementById('analysis-step');
+    container.classList.remove('d-none');
     
-    overlay.classList.remove('d-none');
-    overlay.classList.add('d-flex'); // Enable Flexbox for centering
-    
-    try {
-
-        const btn = document.getElementById('run-gemini-btn');
-        btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing...';
-
-        log("Starting Gemini Analysis Pipeline...", "system");
-
-
-        // 1. Upload File
-        // 1. Upload File
-        stepLabel.innerText = "Uploading video to Context Window...";
-        log("Step 1: Uploading video to Gemini...", "ai");
-
-        const fileUri = await uploadFileToGemini(apiKey, activeVideoBlob, activeVideoName);
-        // log(`Upload complete. URI: ${fileUri}`, "system");
-
-        // 2. Poll for Active State
-        // 2. Poll for Active State
-        stepLabel.innerText = "Processing video content...";
-        log("Step 2: Processing video (waiting for state=ACTIVE)...", "ai");
-
-        await waitForFileActive(apiKey, fileUri);
-        log("Video processing complete.", "success");
-
-        // 3. Generate Content
-        // 3. Generate Content
-        stepLabel.innerText = "Consulting Ad Catalog & Persona...";
-        log("Step 3: Generating Ad Schedule contextually...", "ai");
-
-        const schedule = await generateAdSchedule(apiKey, fileUri, activeProfile);
-        
-        // 4. Output
-        // 4. Output with Lit HTML
-        generatedSchedule = schedule;
-        renderSchedule(schedule);
-        
-        generatedSchedule = schedule;
-        renderSchedule(schedule);
-        
-        // Save to Cache
-        localStorage.setItem(cacheKey, JSON.stringify(schedule));
-        
-        log(`Success! ${schedule.length} ad slots generated.`, "success");
-        document.getElementById('engine-status').innerText = "Analysis Complete. Play video to view ads.";
-
-    } catch (error) {
-        log(`Error: ${error.message}`, "error");
-        showAlert(`Analysis Failed: ${error.message}`, "danger");
-        console.error(error);
-        
-        // Render Error State in Schedule Box too
-        render(html`<div class="alert alert-danger m-3">Analysis Failed. check logs.</div>`, document.getElementById('json-output'));
-
-
-    } finally {
-        overlay.classList.add('d-none'); // Hide Overlay
-        overlay.classList.remove('d-flex');
-        
-        const btn = document.getElementById('run-gemini-btn');
-
-
-        btn.disabled = false;
-        btn.innerHTML = '<i class="bi bi-stars me-2"></i>Analyze with Gemini';
-    }
-}
-
-
-async function uploadFileToGemini(apiKey, blob, displayName) {
-    const metadata = { file: { display_name: displayName } };
-    const numBytes = blob.size;
-    const mimeType = blob.type;
-
-    // A. Initiate Resumable Upload
-    const initRes = await fetch(`https://generativelanguage.googleapis.com/upload/v1beta/files?key=${apiKey}`, {
-        method: 'POST',
-        headers: {
-            'X-Goog-Upload-Protocol': 'resumable',
-            'X-Goog-Upload-Command': 'start',
-            'X-Goog-Upload-Header-Content-Length': numBytes,
-            'X-Goog-Upload-Header-Content-Type': mimeType,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(metadata)
+    const templates = schedule.map(ad => {
+        const jumpTime = Math.max(0, ad.timestamp_seconds - 3);
+        const timeStr = formatTime(ad.timestamp_seconds);
+        return html`
+            <button class="btn btn-sm btn-outline-primary d-flex align-items-center" 
+                    @click=${() => jumpToTime(jumpTime)}>
+                <i class="bi bi-play-fill me-1"></i>
+                <span class="me-1">Ad at ${timeStr}</span>
+                <span class="badge bg-primary-subtle text-primary-emphasis rounded-pill" style="font-size: 0.7em;">Jump</span>
+            </button>
+        `;
     });
-
-    if (!initRes.ok) throw new Error(`Upload Init Failed: ${initRes.statusText}`);
-    const uploadUrl = initRes.headers.get('x-goog-upload-url');
-
-    // B. Perform Upload
-    const uploadRes = await fetch(uploadUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Length': numBytes,
-            'X-Goog-Upload-Offset': '0',
-            'X-Goog-Upload-Command': 'upload, finalize'
-        },
-        body: blob
-    });
-
-    if (!uploadRes.ok) throw new Error(`File Transfer Failed: ${uploadRes.statusText}`);
-    const fileInfo = await uploadRes.json();
-    return fileInfo.file.uri;
+    
+    render(html`${templates}`, list);
 }
 
-async function waitForFileActive(apiKey, fileUri) {
-    // Extract file name from URI
-    // URI format: https://generativelanguage.googleapis.com/v1beta/files/NAME
-    const fileName = fileUri.split('/files/')[1]; 
-    const checkUrl = `https://generativelanguage.googleapis.com/v1beta/files/${fileName}?key=${apiKey}`;
-
-    let state = "PROCESSING";
-    while (state === "PROCESSING") {
-        await new Promise(r => setTimeout(r, 2000)); // poll every 2s
-        const res = await fetch(checkUrl);
-        const data = await res.json();
-        state = data.state;
-        if (state === "FAILED") throw new Error("Video processing failed on Gemini side.");
-    }
-    return state;
+function jumpToTime(seconds) {
+    const video = document.getElementById('main-video');
+    video.currentTime = seconds;
+    video.play();
+    log(`Jumped to ${formatTime(seconds)} (Context for Ad)`, "system");
 }
 
 
-async function generateAdSchedule(apiKey, fileUri, profile) {
-    let modelName = APP_CONFIG.model || 'gemini-1.5-flash-001'; // Reverted to 'gemini-1.5-flash-001'
-    
-    // Optional: Log model usage
-    log(`Using Model: ${modelName}`, "system");
 
-    const catalogSummary = adCatalog.map(ad => 
-        `- ID: ${ad.id} | Brand: ${ad.brand} | Title: ${ad.title} | Tags: ${ad.tags.join(', ')} | Desc: ${ad.description}`
-    ).join('\n');
-
-    const prompt = `
-    You are the AdStream Contextual Engine.
-    
-    User Profile: 
-    - Name: ${profile.name || "Generic User"}
-    - Demographics: ${profile.age || "Unknown"} years old, ${profile.gender || "Unknown"}
-    - Interests: ${(profile.interests || []).join(", ")}
-    - Mood: ${profile.mood || "Neutral"}
-    - Buying Pattern: ${profile.pattern || "Clicker"}
-
-    Available Ad Catalog (Choose from these ONLY):
-    ${catalogSummary}
-    
-    Task: Scan the video for ad placement opportunities aligned with the User Profile.
-    Select specific ads from the catalog that match the context of the video and the user profile.
-    
-    Output: A JSON list of objects.
-    
-    Format:
-    [
-      {
-        "timestamp_seconds": number,
-        "ad_id": "string (MUST be one of the IDs from the catalog)",
-        "video_context": "Short description of what is happening in the video scene",
-        "persona_match": "Why this specifically fits the User's demographics/interests",
-        "strategic_reason": "The logic behind placing THIS ad at THIS moment"
-      }
-    ]
-    Return ONLY valid JSON.
-    `;
-
-
-
-    // 2. Generation Request
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            contents: [{
-                parts: [
-                    { text: prompt },
-                    { file_data: { mime_type: "video/mp4", file_uri: fileUri } }
-                ]
-            }],
-            // Force JSON response to ensure parsing works
-            generationConfig: {
-                response_mime_type: "application/json"
-            }
-        })
-    });
-
-    if(!res.ok) {
-        const errText = await res.text();
-        throw new Error(`Generation Failed (${res.status}): ${errText}`);
-    }
-    
-    const data = await res.json();
-    
-    try {
-        const text = data.candidates[0].content.parts[0].text;
-        const jsonStr = text.replace(/```json/g, '').replace(/```/g, '').trim();
-        const rawSchedule = JSON.parse(jsonStr);
-        
-        // Hydrate schedule with full ad details from catalog
-        return rawSchedule.map(item => {
-            const catalogItem = adCatalog.find(ad => ad.id === item.ad_id);
-            if (!catalogItem) return null; // skip invalid IDs
-            return {
-                ...item,
-                ...catalogItem,
-                duration: 30 // Approx duration, or we rely on YT player 'ended' event
-            };
-        }).filter(item => item !== null);
-
-    } catch (e) {
-        console.error("Failed to parse Gemini response", data);
-        throw new Error("Invalid JSON response from Gemini");
-    }
-}
 
 function renderSchedule(schedule) {
     const container = document.getElementById('json-output'); 

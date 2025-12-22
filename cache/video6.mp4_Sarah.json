@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp_seconds": 10,
+    "ad_id": "ad_010",
+    "video_context": "Two astronauts are floating in space, holding hands, gazing down at the Earth with an expression of awe and wonder.",
+    "persona_match": "Sarah, being 'Mindful,' would likely appreciate the vastness and beauty of Earth from space, aligning with a sense of wonder. While Red Bull itself isn't directly sustainable, the ad showcases a grand human achievement that can be awe-inspiring, which can resonate with a mindful appreciation for human potential and scale.",
+    "strategic_reason": "Strong visual and thematic alignment with the video's opening sequence of astronauts observing Earth. The Red Bull Stratos Jump is a real-life extreme feat involving space, directly complementing the current video frame.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 35,
+    "ad_id": "ad_005",
+    "video_context": "The video is showcasing a rapid-fire montage of various global experiences, natural phenomena, and human activities, set to the 'I love the whole world' song. This specific point is just after a man in a submarine looking at marine life.",
+    "persona_match": "Sarah's 'Mindful' mood can appreciate the creative, musical, and somewhat whimsical nature of the Cadbury Gorilla ad. The presence of a gorilla, an animal, can subtly connect to an appreciation for nature, aligning somewhat with 'Sustainable Living' interests.",
+    "strategic_reason": "Offers a positive, iconic, and musically engaging interlude during a varied montage of scenes. The ad's musicality can complement the video's ongoing soundtrack.",
+    "id": "ad_005",
+    "title": "Cadbury - Gorilla",
+    "description": "A gorilla plays drums to Phil Collins in a legendary ad.",
+    "brand": "Cadbury",
+    "tags": [
+      "Music",
+      "Iconic"
+    ],
+    "youtube_id": "TnzFRV1LwIo",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 50,
+    "ad_id": "ad_001",
+    "video_context": "People are gathered on a beach at night, watching a fireworks display over the ocean, celebrating human interaction and the world's beauty.",
+    "persona_match": "As an 'Ethical Shopper' interested in 'Sustainable Living,' Sarah values thoughtful progress and innovation. The Apple '1984' ad, while historical, is a powerful statement about challenging norms and envisioning a better future, which can align with a mindful approach to societal and technological advancement.",
+    "strategic_reason": "Placing it during a moment of collective human celebration and reflection on the world's wonders allows the ad's message of innovation and societal change to resonate with the overall theme of humanity's place and impact on the 'awesome world' before the video's conclusion.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

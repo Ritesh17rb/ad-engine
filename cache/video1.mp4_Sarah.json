@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 55,
+    "ad_id": "ad_010",
+    "video_context": "A red fox executes a remarkable vertical leap into deep snow to successfully catch a field mouse, demonstrating incredible hunting precision and unique skills.",
+    "persona_match": "Sarah, with her 'mindful mood,' can appreciate the intense focus and precision demonstrated by the fox. The Red Bull 'Stratos Jump' ad highlights peak performance and concentration, which aligns with a mindful approach to a task, even if extreme.",
+    "strategic_reason": "The video has just demonstrated an extraordinary act of precision and skill in nature, setting the stage for an ad about extreme human achievement and focus. The Red Bull Stratos Jump thematically links to 'amazing skills' and 'extreme feats' seen in the wild.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 130,
+    "ad_id": "ad_010",
+    "video_context": "The narrator explains how the fox utilizes the Earth's magnetic field to accurately plot its trajectory for hunting, likening its precision to guided missiles.",
+    "persona_match": "The scientific wonder of the fox's ability to navigate using the Earth's magnetic field can appeal to a 'mindful' and curious individual like Sarah, appreciating the intelligence and adaptability of nature. The Red Bull ad highlights pushing the boundaries of human capability and complex planning, resonating with the advanced 'skills' described for the fox.",
+    "strategic_reason": "The revelation of the fox's advanced, 'innovative' use of the Earth's magnetic field for precision hunting creates a strong context for an ad promoting extreme human innovation, focus, and overcoming challenges, directly linking to the Red Bull Stratos Jump.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

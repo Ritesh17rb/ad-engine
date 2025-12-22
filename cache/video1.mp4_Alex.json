@@ -1,0 +1,54 @@
+[
+  {
+    "timestamp_seconds": 55,
+    "ad_id": "ad_010",
+    "video_context": "The fox performs an impressive high leap into the snow, successfully catching a field mouse hidden beneath the surface, showcasing its incredible hunting skills.",
+    "persona_match": "Alex, interested in 'Gaming, Esports, Tech,' and with an 'Excited' mood, would be drawn to the 'extreme' nature and daring feat of the Red Bull Stratos Jump, mirroring the fox's high-stakes, precise leap. His 'Impulse Buyer' trait responds to high-impact, thrilling content.",
+    "strategic_reason": "Capitalize on the high-action moment of the fox's successful, almost gravity-defying, jump by showing an ad about pushing human limits in an extreme, high-tech way.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 130,
+    "ad_id": "ad_001",
+    "video_context": "The narrator reveals the scientific understanding of how the fox uses Earth's magnetic field to calculate its jumps, comparing it to 'math missiles,' highlighting a form of biological 'technology' or advanced intelligence.",
+    "persona_match": "Alex's 'Tech' and 'Innovation' interests are directly addressed by the explanation of the fox's advanced biological 'tech'. The 'Apple - 1984' ad, known for its message of groundbreaking technology and challenging the status quo, would resonate with his appreciation for innovation.",
+    "strategic_reason": "Align with the video's revelation of advanced, almost technological, intelligence in nature. The ad celebrates innovation and technological breakthroughs, a perfect thematic fit after the scientific explanation.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 165,
+    "ad_id": "ad_007",
+    "video_context": "The fox executes another successful hunt, making a precise jump and emerging with its prey, demonstrating sustained peak performance and skill.",
+    "persona_match": "Alex's interests in 'Gaming, Esports,' and 'Excited' mood align well with the theme of high performance, success, and making one's mark, as depicted in the cinematic Nike ad. The fox's hunting is a display of peak natural athleticism, akin to a skilled competitor.",
+    "strategic_reason": "Leverage the moment of triumph and skilled execution by placing an ad that celebrates high performance, achievement, and athletic prowess, resonating with the fox's successful and skillful hunting.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  }
+]

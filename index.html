@@ -22,12 +22,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="nav-item ms-auto me-2">
+                <div class="nav-item d-none">
                     <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#configModal">
                         <i class="bi bi-gear-fill me-2"></i>Config
                     </button>
                 </div>
-                <div class="nav-item dropdown" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+
+                <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode"
+                    title="Toggle Dark Mode">
                     <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button"
                         data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
                         <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
@@ -90,24 +92,56 @@
                 </div>
             </div>
 
-
-
-            <div class="col-md-4 mb-3">
-                <div class="card video-card h-100" data-video-src="videos/video3.mp4">
-                    <div class="card-body text-center">
-                        <i class="bi bi-bicycle fs-1 text-danger mb-3"></i>
-                        <h5 class="card-title">Discovery Ghost Adventures</h5>
-                        <p class="card-text small text-muted">2 Minutes 43 Seconds</p>
-                        <button class="btn btn-outline-secondary w-100 select-video-btn">Load Video</button>
-                    </div>
-                </div>
-            </div>
             <div class="col-md-4 mb-3">
                 <div class="card video-card h-100" data-video-src="videos/video2.mp4">
                     <div class="card-body text-center">
                         <i class="bi bi-flower1 fs-1 text-success mb-3"></i>
                         <h5 class="card-title">Lex Fridman Podcast</h5>
                         <p class="card-text small text-muted">6 Minutes 7 Seconds</p>
+                        <button class="btn btn-outline-secondary w-100 select-video-btn">Load Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card video-card h-100" data-video-src="videos/video3.mp4">
+                    <div class="card-body text-center">
+                        <i class="bi bi-bicycle fs-1 text-danger mb-3"></i>
+                        <h5 class="card-title">Discovery Ghost</h5>
+                        <p class="card-text small text-muted">2 Minutes 43 Seconds</p>
+                        <button class="btn btn-outline-secondary w-100 select-video-btn">Load Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card video-card h-100" data-video-src="videos/video4.mp4">
+                    <div class="card-body text-center">
+                        <i class="bi bi-laptop fs-1 text-info mb-3"></i>
+                        <h5 class="card-title">Sea</h5>
+                        <p class="card-text small text-muted">3 Minutes 36 Seconds</p>
+                        <button class="btn btn-outline-secondary w-100 select-video-btn">Load Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card video-card h-100" data-video-src="videos/video5.mp4">
+                    <div class="card-body text-center">
+                        <i class="bi bi-airplane fs-1 text-warning mb-3"></i>
+                        <h5 class="card-title">Forest</h5>
+                        <p class="card-text small text-muted">3 Minutes 5 Seconds</p>
+                        <button class="btn btn-outline-secondary w-100 select-video-btn">Load Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card video-card h-100" data-video-src="videos/video6.mp4">
+                    <div class="card-body text-center">
+                        <i class="bi bi-egg-fried fs-1 text-danger mb-3"></i>
+                        <h5 class="card-title">Space</h5>
+                        <p class="card-text small text-muted">1 Minutes 00 Seconds</p>
                         <button class="btn btn-outline-secondary w-100 select-video-btn">Load Video</button>
                     </div>
                 </div>
@@ -120,43 +154,8 @@
                 <h4 class="mb-3">Select a Target Persona</h4>
             </div>
 
-            <!-- Scenario 1: Custom Persona -->
-            <div class="col-md-4 mb-3">
-                <div class="card scenario-card h-100 border-warning" id="custom-persona-card">
-                    <div class="card-header bg-warning text-dark fw-bold">
-                        <i class="bi bi-person-gear me-2"></i>Define Custom Persona
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-2">
-                            <input type="text" class="form-control form-control-sm mb-2" id="custom-name"
-                                placeholder="Name (e.g. John)" value="John Doe">
-                            <div class="row g-2 mb-2">
-                                <div class="col-6"><input type="number" class="form-control form-control-sm"
-                                        id="custom-age" placeholder="Age" value="30"></div>
-                                <div class="col-6"><select class="form-select form-select-sm" id="custom-gender">
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select></div>
-                            </div>
-                            <input type="text" class="form-control form-control-sm mb-2" id="custom-interests"
-                                placeholder="Interests (comma sep)" value="Coffee, Coding, Jazz">
-                            <input type="text" class="form-control form-control-sm mb-2" id="custom-searches"
-                                placeholder="Recent Searches" value="Best espresso machine, VS Code themes">
-                            <div class="row g-2">
-                                <div class="col-6"><input type="text" class="form-control form-control-sm"
-                                        id="custom-mood" placeholder="Mood" value="Curious"></div>
-                                <div class="col-6"><input type="text" class="form-control form-control-sm"
-                                        id="custom-pattern" placeholder="Buyer Type" value="Researcher"></div>
-                            </div>
-                        </div>
-                        <button class="btn btn-warning w-100 fw-bold mt-2" id="set-custom-persona-btn">Set & Select
-                            Active</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scenario 2: The Eco-Traveler -->
+            <!-- Predefined Personas -->
+            <!-- 1. Eco Traveler -->
             <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video2.mp4"
                     data-profile='{"name": "Sarah", "age": 32, "gender": "Female", "interests": ["Sustainable Living", "Yoga", "Plant-Based Diet"], "mood": "Mindful", "pattern": "Ethical Shopper", "searches": ["Patagonia sale", "Airbnb treehouse", "Vegan meal prep"]}'>
@@ -168,7 +167,7 @@
                         <p class="card-text small text-muted mb-2">Sarah, 32 • Female</p>
                         <div class="small mb-2">
                             <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
-                            "Patagonia sale", "Airbnb treehouse"
+                            "Patagonia sale", "Airbnb"
                         </div>
                         <ul class="list-group list-group-flush small mb-3">
                             <li class="list-group-item px-0"><i
@@ -181,7 +180,7 @@
                 </div>
             </div>
 
-            <!-- Scenario 3: The Fitness Pro -->
+            <!-- 2. Fitness Buff -->
             <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video3.mp4"
                     data-profile='{"name": "Mike", "age": 29, "gender": "Male", "interests": ["Ironman Triathlon", "Biohacking", "Recovery Tech"], "mood": "Determined", "pattern": "Performance Driven", "searches": ["Whoop strap 4.0", "Nike Alphafly 3", "Ketone IQ reviews"]}'>
@@ -206,7 +205,7 @@
                 </div>
             </div>
 
-            <!-- Scenario 4: The Busy Professional (Luxury) -->
+            <!-- 3. Executive -->
             <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video1.mp4"
                     data-profile='{"name": "Priya", "age": 41, "gender": "Female", "interests": ["Venture Capital", "Luxury EVs", "Fine Art"], "mood": "Sophisticated", "pattern": "Quality First", "searches": ["Tesla Model X Plaid", "Bloomberg terminal cost", "Sothebys auction"]}'>
@@ -231,7 +230,7 @@
                 </div>
             </div>
 
-            <!-- Scenario 5: The DIY Dad -->
+            <!-- 4. DIY Dad -->
             <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video2.mp4"
                     data-profile='{"name": "David", "age": 45, "gender": "Male", "interests": ["Home Renovation", "BBQ Smoking", "Trucks"], "mood": "Practical", "pattern": "Value Seeker", "searches": ["Traeger grill recipes", "Home Depot lumber prices", "Ford F-150 accessories"]}'>
@@ -256,7 +255,7 @@
                 </div>
             </div>
 
-            <!-- Scenario 6: The Gen Z Student -->
+            <!-- 5. Trendsetter -->
             <div class="col-md-4 mb-3">
                 <div class="card scenario-card h-100" data-video="videos/video3.mp4"
                     data-profile='{"name": "Emma", "age": 19, "gender": "Female", "interests": ["Thrifting", "K-Pop", "Streetwear"], "mood": "Trendy", "pattern": "Social Influence", "searches": ["Depop vintage", "NewJeans merch", "Rare Beauty blush"]}'>
@@ -280,6 +279,32 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 6. The Gamer (NEW) -->
+            <div class="col-md-4 mb-3">
+                <div class="card scenario-card h-100" data-video="videos/video4.mp4"
+                    data-profile='{"name": "Alex", "age": 22, "gender": "Male", "interests": ["Gaming", "Esports", "Tech"], "mood": "Excited", "pattern": "Impulse Buyer", "searches": ["RTX 4090", "Steam Sale", "Twitch Streamer"]}'>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title"><i class="bi bi-controller me-2"></i>The Gamer</h5>
+                            <span class="badge bg-primary">Gen Z</span>
+                        </div>
+                        <p class="card-text small text-muted mb-2">Alex, 22 • Male</p>
+                        <div class="small mb-2">
+                            <strong><i class="bi bi-search me-1"></i>Searches:</strong><br>
+                            "RTX 4090", "Steam Sale"
+                        </div>
+                        <ul class="list-group list-group-flush small mb-3">
+                            <li class="list-group-item px-0"><i class="bi bi-joystick me-2 text-secondary"></i>Tech
+                                Enthusiast</li>
+                            <li class="list-group-item px-0"><i
+                                    class="bi bi-emoji-sunglasses-fill me-2 text-secondary"></i>Mood: Excited</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 select-scenario-btn">Select Persona</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Active Engine Interface (Hidden until selected) -->
@@ -384,6 +409,15 @@
                     </div>
                     <div class="card-footer text-muted small">
                         Status: <span id="engine-status">Waiting for analysis...</span>
+                        <!-- New Ad Indicators Section -->
+                        <div id="ad-indicators-container" class="mt-3 card d-none">
+                            <div class="card-body p-2 bg-body-tertiary border rounded">
+                                <div class="small fw-bold text-uppercase text-body-secondary mb-1">Upcoming Ads</div>
+                                <div id="ad-indicators-list" class="d-flex flex-wrap gap-2">
+                                    <span class="text-body-secondary small">No ads scheduled.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

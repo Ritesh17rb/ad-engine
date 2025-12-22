@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 115,
+    "ad_id": "ad_010",
+    "video_context": "The characters have just made a dramatic escape in a truck from menacing hooded figures in the forest, moving from a trapped situation to active flight and relief.",
+    "persona_match": "Emma's 'Trendy' mood appreciates the high-energy, extreme, and widely discussed nature of the Red Bull Stratos Jump. Her 'Social Influence' buying pattern aligns with the ad's viral and shareable content.",
+    "strategic_reason": "To provide a high-energy transition and a sense of triumph/escape after the intense chase scene. The extreme nature of the ad mirrors the adrenaline of the escape, and its popularity aligns with Emma's social influence buying pattern.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 150,
+    "ad_id": "ad_002",
+    "video_context": "The narrator has finished recounting the terrifying story, and the interviewer just commented on how scary it was, leaving the audience in a state of lingering tension.",
+    "persona_match": "Emma's 'Trendy' mood and 'Social Influence' buying pattern would respond well to a viral and comedic ad like Old Spice. It's a culturally recognizable and shareable piece of content.",
+    "strategic_reason": "To offer a mood-breaking, humorous, and viral ad after the suspenseful and scary narrative. This provides relief and engages Emma with content that fits her interest in shareable, popular trends.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

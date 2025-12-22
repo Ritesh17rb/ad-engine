@@ -1,0 +1,71 @@
+[
+  {
+    "timestamp_seconds": 19,
+    "ad_id": "ad_007",
+    "video_context": "The narrator highlights the fox's 'amazing set of skills' as it surveys the snowy landscape, preparing to hunt.",
+    "persona_match": "Emma's interest in 'Streetwear' often correlates with sports brands like Nike, known for their trendy and influential campaigns. The ad's theme of 'moments shaping legacy' can resonate with a trendy, aspirational mindset.",
+    "strategic_reason": "Placing a Nike ad here reinforces the theme of exceptional skill and 'peak performance' in the animal kingdom, aligning the fox's abilities with the brand's athletic excellence and appeal to Emma's contemporary interests.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 54,
+    "ad_id": "ad_010",
+    "video_context": "The fox successfully completes a high, dramatic leap into the deep snow, catching its prey.",
+    "persona_match": "Red Bull is a brand strongly associated with 'Extreme' and 'Live Event' content, which aligns well with Emma's 'Trendy' mood and 'Social Influence' buying pattern, as these events are often viral and shareable.",
+    "strategic_reason": "This placement capitalizes on the visual spectacle and 'extreme' nature of the fox's successful, gravity-defying hunt, drawing a parallel to Red Bull's 'Stratos Jump' and connecting with a young, trend-conscious audience like Emma.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 128,
+    "ad_id": "ad_001",
+    "video_context": "The narrator explains how the fox uses an 'amazing set of skills' and 'immense concentration' to detect prey, hinting at a scientific explanation for its success.",
+    "persona_match": "Apple is a globally recognized, trendy brand that appeals to a 19-year-old. The ad's 'Technology' and 'Innovation' tags connect directly to the scientific marvel of the fox's magnetic field hunting, fitting Emma's 'Trendy' mood.",
+    "strategic_reason": "This ad is placed at a moment when the video reveals the 'innovative' and 'technological' aspect of the fox's hunting strategy (using the Earth's magnetic field), making Apple's iconic '1984' ad a relevant and resonant choice for the theme of groundbreaking ideas.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 160,
+    "ad_id": "ad_002",
+    "video_context": "After multiple successful and dramatic leaps, the fox finally catches its prey, showcasing its consistent hunting prowess.",
+    "persona_match": "The 'viral' nature of the Old Spice ad and its 'comedy' aspect are highly suitable for Emma, aligning with her 'Social Influence' buying pattern and 'Trendy' mood. It provides a lighthearted, well-known, and engaging break.",
+    "strategic_reason": "Positioning this ad after a series of intense hunting sequences offers a refreshing change of pace with a widely recognized, humorous, and viral commercial. Its popularity and cultural impact make it a strong choice for a user driven by 'Social Influence'.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

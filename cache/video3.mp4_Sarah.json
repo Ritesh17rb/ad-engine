@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 29,
+    "ad_id": "ad_005",
+    "video_context": "The protagonist is describing exploring in the forest with friends before any disturbing events occur, setting up the initial, calmer phase of the story.",
+    "persona_match": "Sarah, who values a 'Mindful' mood, would likely appreciate a brief, joyful, and well-known ad like Cadbury's 'Gorilla' which offers a positive and lighthearted contrast before the suspense and horror escalate.",
+    "strategic_reason": "To provide a mood-setting interlude with a feel-good, iconic commercial right before the narrative shifts into its darker, disturbing elements, offering a pleasant and engaging interruption.",
+    "id": "ad_005",
+    "title": "Cadbury - Gorilla",
+    "description": "A gorilla plays drums to Phil Collins in a legendary ad.",
+    "brand": "Cadbury",
+    "tags": [
+      "Music",
+      "Iconic"
+    ],
+    "youtube_id": "TnzFRV1LwIo",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 115,
+    "ad_id": "ad_002",
+    "video_context": "The narrative has just depicted a tense escape from mysterious figures in a truck. The immediate danger seems to have passed, but the lingering dread of being pursued is about to be re-established.",
+    "persona_match": "For Sarah, who might be feeling intense emotional tension from the scary narrative, a humorous and viral ad like Old Spice offers a strong emotional contrast and a much-needed mental break, aligning with a need for a 'mindful' reset from stress.",
+    "strategic_reason": "To provide immediate comedic relief and a mental break after a high-stakes escape, effectively cutting through the heightened tension before the story delves back into psychological horror with the 'they found me' revelation.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

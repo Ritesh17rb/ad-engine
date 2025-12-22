@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp_seconds": 0,
+    "ad_id": "ad_010",
+    "video_context": "The video opens with astronauts floating in space, gazing at the Earth, setting a tone of vast exploration and human achievement.",
+    "persona_match": "David, a 45-year-old male with practical interests and a value-seeking buying pattern, would appreciate the grandeur and engineered precision of extreme human feats. The 'Extreme, Live Event' nature of Red Bull's Stratos Jump aligns with the awe-inspiring and adventurous spirit of the opening space sequence.",
+    "strategic_reason": "This placement leverages a strong thematic match between the video's initial scenes of space exploration and the Red Bull Stratos Jump, which celebrates pushing human limits. It appeals to David's appreciation for impactful achievements and grand scale, delivered through a renowned 'Live Event' that provides a sense of value in experience.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 50.5,
+    "ad_id": "ad_001",
+    "video_context": "Two men are in a workshop environment, with shelves containing boxes labeled 'Pumps' and 'Building Materials', working on a mechanical contraption with tools and fire.",
+    "persona_match": "This scene directly aligns with David's interest in 'Home Renovation' and his 'Practical' mood. While the Apple ad is about technology, its theme of 'Innovation' and revolutionizing the ordinary can resonate with a practical, value-seeking individual looking for new and efficient solutions, whether for tools or systems, in his renovation projects.",
+    "strategic_reason": "Placing the Apple '1984' ad during a hands-on workshop scene connects to David's practical and home renovation interests. The ad's message of introducing a groundbreaking, innovative 'tool' (the Macintosh) can be seen as offering long-term value and efficiency, appealing to his 'Value Seeker' buying pattern in the context of improving methods and tools for practical tasks.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp_seconds": 111,
+    "ad_id": "ad_010",
+    "video_context": "The scene transitions from the crew attending to the sick captain to an exterior shot of the boat navigating rough seas, highlighting the dangerous and challenging environment.",
+    "persona_match": "David, a 45-year-old male with interests in hands-on activities like home renovation, BBQ smoking, and trucks, is characterized as practical and a value seeker. The Red Bull Stratos Jump ad, showcasing a highly engineered and daring feat of human endurance and innovation, aligns with an appreciation for skill, precision, and overcoming significant challenges. This resonates with a rugged, capable male demographic who values practical achievement and strong performance.",
+    "strategic_reason": "The dramatic and high-stakes nature of the Red Bull Stratos Jump provides an impactful and aspirational contrast to the tense medical emergency unfolding on the boat. It offers a momentary psychological break from the immediate crisis by highlighting human ingenuity and resilience in an extreme context, fitting the 'practical' and 'value seeker' aspects of the user profile who appreciates impressive feats and robust solutions, even if not directly related to his hobbies.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

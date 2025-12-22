@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp_seconds": 147,
+    "ad_id": "ad_010",
+    "video_context": "The deckhand is on the phone with a medical specialist, discussing the critical condition of a crew member who is suffering from low blood pressure and chest tightness. The specialist just asked how fast they can get him medical attention, highlighting the urgency, and the deckhand stated they are 8 hours from Dutch Harbor, which only has a medical clinic, not a hospital, revealing the remoteness and logistical challenge.",
+    "persona_match": "Priya's interest in 'Venture Capital' and 'Quality First' buying pattern suggests an appreciation for large-scale, ambitious, and well-executed projects. The Red Bull Stratos Jump, while physically daring, represents a monumental human and technological endeavor. It aligns with the strategic thinking, significant investment, and calculated risk often associated with venture capital, and the high-quality execution appeals to her 'Quality First' pattern. The 'Sophisticated' mood can appreciate the unique and significant nature of such a world-record-breaking event.",
+    "strategic_reason": "The video currently portrays an extreme, high-stakes, life-or-death situation in a remote and challenging environment. The Red Bull Stratos Jump ad also depicts an extreme, high-stakes 'live event' that required immense planning, technology, and execution. While the contexts are different (rescue vs. planned stunt), the shared theme of facing immense challenges and the need for precision and resilience provides a sophisticated thematic link, rather than a jarring shift to unrelated content. It offers an ad that acknowledges the intensity of the moment without being insensitive.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 47,
+    "ad_id": "ad_010",
+    "video_context": "Workers have just finished cutting a 'window' into the tree for explosives. The next scene will visually explain the process, building anticipation for the blast.",
+    "persona_match": "Alex's 'Excited' mood and interests in 'Gaming, Esports, Tech' align well with the high-energy, extreme, and innovative spirit of Red Bull's Stratos Jump. Gamers often appreciate extreme feats and high stakes.",
+    "strategic_reason": "This placement capitalizes on the building tension and the 'explosive' nature of the upcoming event. Red Bull's brand positioning with extreme events directly taps into the excitement and high-stakes environment being portrayed in the video, resonating with the user's adventurous side.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 160,
+    "ad_id": "ad_002",
+    "video_context": "The massive tree has just been successfully demolished by explosives, and the workers are surveying the debris. The estimated and actual values of the timber are displayed, concluding a major segment.",
+    "persona_match": "Alex is 22, male, an 'Impulse Buyer' and 'Excited.' The viral, comedic nature of the Old Spice ad is perfect for a post-event mood, offering a lighthearted, memorable break that appeals to his demographic.",
+    "strategic_reason": "Following the intense explosion, a comedic and viral ad like Old Spice provides a sharp, memorable contrast. It leverages the user's 'Excited' mood and 'Impulse Buyer' pattern by presenting a popular, engaging commercial that is widely recognized and enjoyed by younger male audiences.",
+    "id": "ad_002",
+    "title": "Old Spice - The Man Your Man Could Smell Like",
+    "description": "The viral Old Spice commercial that redefined brand humor.",
+    "brand": "Old Spice",
+    "tags": [
+      "Comedy",
+      "Viral"
+    ],
+    "youtube_id": "owGykVbfgUE",
+    "duration": 30
+  }
+]

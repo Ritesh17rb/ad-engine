@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp_seconds": 115,
+    "ad_id": "ad_007",
+    "video_context": "The fishing vessel 'Northwestern' is shown cutting through strong ocean waves, with birds flying overhead. The scene emphasizes the challenging and relentless environment.",
+    "persona_match": "Mike's interest in Ironman Triathlon and his 'Performance Driven' buying pattern strongly align with Nike's theme of pushing limits and achieving greatness under pressure. His 'Determined' mood matches the visual of the boat battling the sea.",
+    "strategic_reason": "To connect the physical endurance and resilience shown by the crew in battling the rough sea, and facing the medical emergency, with Mike's interest in high-performance sports and the idea of 'writing one's own future' through determination.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 155,
+    "ad_id": "ad_010",
+    "video_context": "The bow of the 'Northwestern' plunges into and emerges from massive waves, showcasing the extreme forces of nature and the vessel's struggle. This highlights an 'extreme' situation.",
+    "persona_match": "Mike's interests in Biohacking and Ironman Triathlon, combined with his 'Performance Driven' buying pattern, make him highly receptive to content related to extreme feats and pushing human capabilities, such as Felix Baumgartner's Stratos Jump.",
+    "strategic_reason": "To leverage the intense and visually extreme environment of the stormy sea, linking it to the concept of extreme challenges and monumental achievements, which Red Bull's Stratos Jump embodies perfectly and resonates with Mike's interests.",
+    "id": "ad_010",
+    "title": "Red Bull - Stratos Jump",
+    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
+    "brand": "Red Bull",
+    "tags": [
+      "Extreme",
+      "Live Event"
+    ],
+    "youtube_id": "FHtvDA0W34I",
+    "duration": 30
+  }
+]

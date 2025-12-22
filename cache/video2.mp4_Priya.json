@@ -1,0 +1,55 @@
+[
+  {
+    "timestamp_seconds": 7,
+    "ad_id": "ad_001",
+    "video_context": "The host introduces literature as a topic, specifically mentioning the Epic of Gilgamesh and its cuneiform origins as one of the earliest works of literature.",
+    "persona_match": "Priya, with her interests in 'Venture Capital' and 'Quality First', would appreciate Apple as a brand known for innovation and premium products. The ad itself is iconic, aligning with her 'Sophisticated' mood and appreciation for impactful, high-quality content.",
+    "strategic_reason": "This ad strategically places a groundbreaking commercial from an innovative technology company at the beginning of a discussion about the origins of literature and human creativity, drawing a parallel between ancient innovation in storytelling and modern innovation in technology and marketing.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 41,
+    "ad_id": "ad_007",
+    "video_context": "The speaker discusses how Gilgamesh, a real historical figure, lived on through stories and legacy, comparing him to Alexander the Great. The theme is about enduring impact and stories.",
+    "persona_match": "Priya's 'Sophisticated' mood and 'Quality First' buying pattern align with Nike's brand and the cinematic quality of the ad. Her interest in 'Venture Capital' could appreciate the strategic narrative of legacy and aspiration.",
+    "strategic_reason": "This ad directly resonates with the video's theme of 'legacy' and 'living on after death' through storytelling and achievement, reinforcing the idea of individuals shaping their future and leaving a lasting mark, a core message of the Nike ad.",
+    "id": "ad_007",
+    "title": "Nike - Write the Future",
+    "description": "A football ad showing how moments shape legacy.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Cinematic"
+    ],
+    "youtube_id": "lSggaxXUS8k",
+    "duration": 30
+  },
+  {
+    "timestamp_seconds": 211,
+    "ad_id": "ad_001",
+    "video_context": "The discussion shifts to the 'strong creative principle' in early Homo sapiens, exemplified by the advanced cave paintings in Lascaux Cave, highlighting the artistic ability and quality of early human expression.",
+    "persona_match": "Priya's interest in 'Fine Art' makes this a direct fit, as the ad itself is a celebrated piece of commercial art and innovation. Her 'Quality First' and 'Sophisticated' preferences align with the iconic status and high production value of the Apple ad.",
+    "strategic_reason": "Capitalize on the explicit mention and visual of ancient 'Fine Art' (cave paintings) and human creative ability by featuring a universally recognized, iconic commercial that is itself a landmark in modern advertising and artistic expression. It bridges ancient human creativity with modern groundbreaking commercial art.",
+    "id": "ad_001",
+    "title": "Apple - 1984 (Full Commercial)",
+    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
+    "brand": "Apple",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Super Bowl"
+    ],
+    "youtube_id": "VtvjbmoDx-I",
+    "duration": 30
+  }
+]
