@@ -1,56 +1,38 @@
 [
   {
-    "timestamp_seconds": 18,
-    "ad_id": "ad_001",
-    "video_context": "The narrator introduces the fox, highlighting its 'amazing set of skills' as it surveys the snowy landscape, setting the stage for its clever hunting methods.",
-    "persona_match": "Priya, with interests in Venture Capital and a 'Quality First' buying pattern, would appreciate the focus on 'amazing skills' and inherent quality, aligning with Apple's brand message of innovation and excellence.",
-    "strategic_reason": "Placing the ad here establishes a connection between the fox's remarkable abilities and Apple's historical narrative of groundbreaking innovation, appealing to Priya's sophisticated and forward-thinking mindset at the outset of the challenge.",
-    "id": "ad_001",
-    "title": "Apple - 1984 (Full Commercial)",
-    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
-    "brand": "Apple",
+    "timestamp_seconds": 68,
+    "ad_id": "ad_sony_02",
+    "video_context": "The chaotic wind noise fades to absolute silence as the fox listens. The narrator emphasizes, 'He needs complete... quiet.'",
+    "persona_match": "Priya, a busy executive who values sophistication and quality, seeks products that offer an escape from her high-pressure environment. The transition to silence represents the 'Premium' experience she desires in her daily travel and work life.",
+    "strategic_reason": "This is a direct 'Problem/Solution' placement. The video visually and audibly demonstrates the value of silence; the ad provides the high-end product that delivers that peace to a discerning consumer.",
+    "id": "ad_sony_02",
+    "title": "Sony - The Art of Silence (Premium)",
+    "description": "Sony WH-1000XM5 Noise Canceling Headphones.",
+    "brand": "Sony",
     "tags": [
-      "Technology",
-      "Innovation",
-      "Super Bowl"
+      "Premium",
+      "Travel",
+      "Quiet"
     ],
-    "youtube_id": "VtvjbmoDx-I",
+    "youtube_id": "7iPM2it7zY0",
     "duration": 30
   },
   {
-    "timestamp_seconds": 55,
-    "ad_id": "ad_001",
-    "video_context": "The fox successfully leaps and dives into the deep snow to catch a field mouse, demonstrating precise execution and success against difficult odds.",
-    "persona_match": "The successful hunt showcases a 'Quality First' outcome and efficient 'technology' (natural, in this case), which resonates with Priya's buying pattern and her interest in effective, high-quality solutions, much like Apple products.",
-    "strategic_reason": "This moment of triumph and precision directly relates to the 'innovation' and 'technology' tags of the Apple ad. It reinforces the idea of superior performance and ingenuity, making it highly relevant to Priya's interests in advanced solutions and quality.",
-    "id": "ad_001",
-    "title": "Apple - 1984 (Full Commercial)",
-    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
-    "brand": "Apple",
+    "timestamp_seconds": 117,
+    "ad_id": "ad_garmin_01",
+    "video_context": "The fox uses advanced natural calculation to ensure a successful outcome, described as 'missile-like math' to hit a target.",
+    "persona_match": "Priya values precision, reliability, and efficient technology. The scientific and analytical description of the fox's method appeals to her 'Quality First' buying pattern and interest in sophisticated tools that help navigate a demanding schedule.",
+    "strategic_reason": "Leveraging the 'Precision' angle of the Garmin brand appeals to her analytical side. The video's focus on 'calculation' and 'targeting' creates a parallel with high-stakes decision-making and the need for reliable data.",
+    "id": "ad_garmin_01",
+    "title": "Garmin - Precision Tracking",
+    "description": "Garmin Fenix 7 Pro Solar - Navigate your world.",
+    "brand": "Garmin",
     "tags": [
-      "Technology",
-      "Innovation",
-      "Super Bowl"
+      "Tech",
+      "Utility",
+      "Precision"
     ],
-    "youtube_id": "VtvjbmoDx-I",
-    "duration": 30
-  },
-  {
-    "timestamp_seconds": 130,
-    "ad_id": "ad_001",
-    "video_context": "The narrator explains that the fox uses the Earth's magnetic field to calculate its jumps, comparing its precision to 'the kind of math missiles use to hit their targets.'",
-    "persona_match": "This segment directly highlights 'technology' and 'innovation' through the fox's natural magnetoreception. This advanced, almost scientific, aspect strongly appeals to Priya's interest in Venture Capital, sophisticated tech, and a 'Quality First' approach to problem-solving.",
-    "strategic_reason": "This placement capitalizes on the explicit mention of natural 'technology' and precision. The comparison to missiles elevates the fox's ability to an engineered marvel, making the connection to Apple's '1984' ad – a symbol of technological revolution and precision – highly impactful for a user like Priya.",
-    "id": "ad_001",
-    "title": "Apple - 1984 (Full Commercial)",
-    "description": "Apple’s iconic Super Bowl commercial introducing Macintosh.",
-    "brand": "Apple",
-    "tags": [
-      "Technology",
-      "Innovation",
-      "Super Bowl"
-    ],
-    "youtube_id": "VtvjbmoDx-I",
+    "youtube_id": "NidypRiTJU4",
     "duration": 30
   }
 ]

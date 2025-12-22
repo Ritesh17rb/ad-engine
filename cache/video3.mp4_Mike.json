@@ -16,6 +16,24 @@
     "youtube_id": "FHtvDA0W34I",
     "duration": 30
   },
+ {
+    "timestamp_seconds": 98,
+    "ad_id": "ad_nike_cardio",
+    "video_context": "The group is in a frantic sprint to their truck to escape the mysterious hooded figures emerging from the woods. It is a high-stakes moment where physical speed and endurance literally determine survival.",
+    "persona_match": "Mike, a fitness buff who searches for 'Nike Alphafly', values performance when it counts. The 'Cardio Saves Lives' concept turns a scary escape into a motivation for endurance training, appealing to his belief that fitness is a survival skill.",
+    "strategic_reason": "Capitalize on the adrenaline of the chase scene. By positioning running not just as a sport, but as a survival necessity, the ad creates an intense, visceral connection between the viewer's current heart rate and the brand's 'Just Do It' philosophy.",
+    "id": "ad_nike_cardio",
+    "title": "Nike - Run For Your Life",
+    "description": "Just Do It. Faster.",
+    "brand": "Nike",
+    "tags": [
+      "Sports",
+      "Running",
+      "Survival"
+    ],
+    "youtube_id": "zgq3Sf9tu5w",
+    "duration": 30
+  },
   {
     "timestamp_seconds": 115,
     "ad_id": "ad_007",

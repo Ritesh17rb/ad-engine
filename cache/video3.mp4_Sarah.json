@@ -1,5 +1,23 @@
 [
   {
+    "timestamp_seconds": 20,
+    "ad_id": "ad_airbnb_01",
+    "video_context": "Jennifer describes the decision to sneak out and go camping on the mountain, setting the scene for their outdoor adventure.",
+    "persona_match": "Sarah, an 'Eco Traveler' searching for 'Airbnb' and 'Patagonia', values curated and safe travel experiences. The mention of 'camping out' triggers a perfect opportunity to offer a safer, more comfortable alternative to the unpredictable woods.",
+    "strategic_reason": "Position Airbnb as the 'safe haven' alternative. As the protagonist describes a risky camping trip that goes wrong, the ad offers a controlled, cozy cabin environment, directly appealing to Sarah's desire for mindful and secure travel.",
+    "id": "ad_airbnb_01",
+    "title": "Airbnb - Cozy Cabin vs. Woods",
+    "description": "Skip the haunted forest. Book a cabin that's actually relaxing.",
+    "brand": "Airbnb",
+    "tags": [
+      "Travel",
+      "Safety",
+      "Comfort"
+    ],
+    "youtube_id": "V2uexZbM5V8",
+    "duration": 30
+  },
+  {
     "timestamp_seconds": 29,
     "ad_id": "ad_005",
     "video_context": "The protagonist is describing exploring in the forest with friends before any disturbing events occur, setting up the initial, calmer phase of the story.",

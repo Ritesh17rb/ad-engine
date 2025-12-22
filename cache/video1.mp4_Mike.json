@@ -1,36 +1,38 @@
 [
   {
-    "timestamp_seconds": 26,
-    "ad_id": "ad_010",
-    "video_context": "The video transitions from broad geographical views to a close-up of a fox in a vast, snow-covered landscape. The narration introduces the fox's 'amazing set of skills' for hunting in extreme conditions.",
-    "persona_match": "Mike, being 'Performance Driven' and interested in 'Ironman Triathlon' and 'Biohacking', would appreciate the introduction of a creature with specialized, high-performance skills in a challenging environment. The extreme landscape also resonates with his interest in endurance sports.",
-    "strategic_reason": "Placing Red Bull's 'Stratos Jump' ad here connects with the theme of extreme environments, pushing limits, and impressive feats introduced by the fox's capabilities and the vast, cold landscape. It capitalizes on the sense of wonder and raw, natural performance, tying into Mike's interest in 'extreme' achievements and 'biohacking' for performance.",
-    "id": "ad_010",
-    "title": "Red Bull - Stratos Jump",
-    "description": "Felix Baumgartner’s space jump sponsored by Red Bull.",
-    "brand": "Red Bull",
+    "timestamp_seconds": 68,
+    "ad_id": "ad_sony_01",
+    "video_context": "The fox stands motionless in the freezing cold, shutting out the environment to focus entirely on the task ahead.",
+    "persona_match": "Mike, an athlete familiar with 'The Zone,' relates to the need for mental clarity and blocking out distractions before a performance. The visual of intense focus mirrors the pre-workout or pre-race mindset.",
+    "strategic_reason": "Positioning the headphones as a tool for 'mental focus' rather than just music appeals to the performance-driven mindset. The ad placement leverages the fox's moment of concentration to sell the benefit of zoning out the world.",
+    "id": "ad_sony_01",
+    "title": "Sony - The Art of Silence",
+    "description": "Sony WH-1000XM5 Noise Canceling Headphones.",
+    "brand": "Sony",
     "tags": [
-      "Extreme",
-      "Live Event"
+      "Focus",
+      "Performance",
+      "Tech"
     ],
-    "youtube_id": "FHtvDA0W34I",
+    "youtube_id": "7iPM2it7zY0",
     "duration": 30
   },
   {
-    "timestamp_seconds": 150,
-    "ad_id": "ad_007",
-    "video_context": "The fox is shown using an extraordinary skill (honing in on the magnetic field of the planet) to calculate and plot its trajectory for hunting, described as 'missile-like math.' It prepares for another precise, high-stakes jump to catch prey.",
-    "persona_match": "Mike's 'Determined' mood and 'Performance Driven' buying pattern align perfectly with the fox's persistent, calculated, and high-precision hunting technique. The scientific explanation of its 'biohacking' ability to use the Earth's magnetic field for enhanced performance would be highly engaging for him.",
-    "strategic_reason": "The 'Nike - Write the Future' ad fits well here as the fox demonstrates peak performance, precision, and determination. This moment, highlighting an animal's incredible, almost 'engineered' ability, directly relates to Mike's interests in high-performance and the pursuit of excellence, often associated with sports and advanced tech.",
-    "id": "ad_007",
-    "title": "Nike - Write the Future",
-    "description": "A football ad showing how moments shape legacy.",
-    "brand": "Nike",
+    "timestamp_seconds": 117,
+    "ad_id": "ad_garmin_01",
+    "video_context": "The narrator explains the fox is 'homing in on the magnetic field of the planet' to 'calculate and plot his trajectory' like a missile.",
+    "persona_match": "Mike is a 'Quantified Self' enthusiast who likely tracks his runs and biometrics. The concept of using invisible data (magnetic fields) to optimize physical movement and trajectory aligns perfectly with his interest in GPS watches and performance tracking.",
+    "strategic_reason": "Triggering the ad exactly when the 'trajectory' and 'calculation' logic is explained positions the Garmin watch as the ultimate tool for plotting one's own course and tracking performance metrics in the wild.",
+    "id": "ad_garmin_01",
+    "title": "Garmin - Precision Tracking",
+    "description": "Garmin Fenix 7 Pro Solar - Navigate your world.",
+    "brand": "Garmin",
     "tags": [
-      "Sports",
-      "Cinematic"
+      "Fitness",
+      "GPS",
+      "Navigation"
     ],
-    "youtube_id": "lSggaxXUS8k",
+    "youtube_id": "NidypRiTJU4",
     "duration": 30
   }
 ]

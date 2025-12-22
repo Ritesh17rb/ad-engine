@@ -7,6 +7,7 @@ import { html, render } from 'https://cdn.jsdelivr.net/npm/lit-html@3.1.0/+esm';
 let isAdShowing = false;
 let currentAd = null;
 let ytPlayer = null;
+let isPlayerReady = false;
 
 
 // Active Session State
@@ -161,24 +162,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Initialize YouTube Player
 
     // Define callback BEFORE injecting script
+    // Define callback BEFORE injecting script
     window.onYouTubeIframeAPIReady = function() {
-        ytPlayer = new YT.Player('youtube-player', {
-            height: '100%',
-            width: '100%',
-            videoId: '', // start empty
-            playerVars: {
-                'playsinline': 1,
-                'controls': 0, 
-                'rel': 0,
-                'showinfo': 0,
-                'modestbranding': 1,
-                'origin': window.location.origin
-            },
-            events: {
-                'onStateChange': onPlayerStateChange
-            }
-        });
-        log("YouTube Player API Ready", "system");
+        try {
+            ytPlayer = new YT.Player('youtube-player', {
+                height: '100%',
+                width: '100%',
+                videoId: '', // start empty
+                playerVars: {
+                    'playsinline': 1,
+                    'controls': 0, 
+                    'rel': 0,
+                    'showinfo': 0,
+                    'modestbranding': 1,
+                    'origin': window.location.origin
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+            // Note: API Ready doesn't mean Player is Ready. 'onReady' confirms it.
+        } catch (e) {
+            console.error("Failed to initialize YouTube Player:", e);
+            log("Error initializing Ad Player API", "error");
+        }
     };
 
     // Inject Script now
@@ -191,6 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+function onPlayerReady(event) {
+    isPlayerReady = true;
+    log("Ad Player Ready", "system");
+}
 
 function onPlayerStateChange(event) {
     // YT.PlayerState.ENDED = 0
@@ -537,7 +550,26 @@ let skipTimerInterval = null;
 
 function showAd(ad) {
     if(!ytPlayer) {
-        log("YouTube Player not ready!", "error");
+        console.warn("ytPlayer object is null/undefined");
+        log("Ad Player not initialized yet.", "warning");
+        return;
+    }
+
+    if(!isPlayerReady) {
+        console.warn("ytPlayer exists but isPlayerReady=false");
+        
+        // Sometimes onReady doesn't fire if hidden, but the object might still work?
+        // But if loadVideoById is missing, it's critical.
+        if (typeof ytPlayer.loadVideoById !== 'function') {
+             log("Ad Player API failed to load methods. Retrying later...", "error");
+             return;
+        }
+    }
+
+    // Final safety check for the specific method error reported
+    if (typeof ytPlayer.loadVideoById !== 'function') {
+        console.error("ytPlayer.loadVideoById is not a function", ytPlayer);
+        log("Error: Ad Player defective (API method missing).", "error");
         return;
     }
 
@@ -577,8 +609,14 @@ function showAd(ad) {
     log(`Playing Ad: ${ad.brand} - ${ad.title}`, "system");
 
     // Load and Play
-    ytPlayer.loadVideoById(ad.youtube_id);
-    ytPlayer.playVideo();
+    try {
+        ytPlayer.loadVideoById(ad.youtube_id);
+        ytPlayer.playVideo();
+    } catch (e) {
+        console.error("Error playing ad video:", e);
+        log("Error playing ad video via YT Player.", "error");
+        hideAd(); // Fallback to resume info
+    }
 }
 
 function hideAd() {
