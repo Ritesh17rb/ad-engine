@@ -659,13 +659,13 @@ function log(message, type = "info") {
     let icon = "";
     if (type === 'system') {
         icon = '<i class="bi bi-gear-fill me-2"></i>';
-        wrapper.className = "chat-msg-wrap d-flex justify-content-center small text-muted";
+        wrapper.className = "chat-msg-wrap msg-ai small text-muted";
     } else if (type === 'ai') {
         icon = '<i class="bi bi-stars me-2 text-primary"></i>';
         wrapper.className = "chat-msg-wrap msg-ai";
     } else if (type === 'error') {
         icon = '<i class="bi bi-exclamation-triangle-fill me-2 text-danger"></i>';
-        wrapper.className = "chat-msg-wrap text-danger";
+        wrapper.className = "chat-msg-wrap msg-ai text-danger";
     } else if (type === 'success') {
         icon = '<i class="bi bi-check-circle-fill me-2 text-success"></i>';
          wrapper.className = "chat-msg-wrap msg-ai";
