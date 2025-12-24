@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Video Event Listener for Ads
     const mainVideo = document.getElementById('main-video');
     mainVideo.addEventListener('timeupdate', checkAdSchedule);
+    mainVideo.addEventListener('seeked', checkAdSchedule); // Also check when user seeks/scrolls
 
     // 6. Custom Fullscreen Logic
     // 6. Custom Fullscreen Logic
@@ -169,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 height: '100%',
                 width: '100%',
                 videoId: '', // start empty
+                host: 'https://www.youtube-nocookie.com', // Enable Privacy-Enhanced Mode
                 playerVars: {
                     'playsinline': 1,
                     'controls': 0, 
@@ -463,11 +465,14 @@ function renderAdIndicators(schedule) {
     container.classList.remove('d-none');
     
     const templates = schedule.map(ad => {
-        const jumpTime = Math.max(0, ad.timestamp_seconds - 3);
+        // Jump to 6 seconds before ad. 
+        // Window triggers at 1 seconds before.
+        // Result: 5 seconds of video context implies.
+        const jumpTime = Math.max(0, ad.timestamp_seconds - 6);
         const timeStr = formatTime(ad.timestamp_seconds);
         return html`
             <button class="btn btn-sm btn-outline-primary d-flex align-items-center" 
-                    @click=${() => jumpToTime(jumpTime)}>
+                    @click=${() => jumpToTime(jumpTime, ad)}>
                 <i class="bi bi-play-fill me-1"></i>
                 <span class="me-1">Ad at ${timeStr}</span>
                 <span class="badge bg-primary-subtle text-primary-emphasis rounded-pill" style="font-size: 0.7em;">Jump</span>
@@ -478,7 +483,11 @@ function renderAdIndicators(schedule) {
     render(html`${templates}`, list);
 }
 
-function jumpToTime(seconds) {
+function jumpToTime(seconds, ad = null) {
+    if (ad) {
+        // Reset played status so user can force-view the ad again
+        ad.hasPlayed = false;
+    }
     const video = document.getElementById('main-video');
     video.currentTime = seconds;
     video.play();
@@ -527,22 +536,26 @@ function checkAdSchedule() {
     const video = document.getElementById('main-video');
     const currentTime = video.currentTime;
 
-    // Find active ad that hasn't been played
+    // 1. RE-ARM LOGIC: If we skipped/rewound back before an ad, reset it so it can play again
+    // We make this very tight (2s) so if you just scrub back a little bit to see it again, it works.
+    generatedSchedule.forEach(ad => {
+        if (ad.hasPlayed && currentTime < (ad.timestamp_seconds - 2)) {
+            ad.hasPlayed = false;
+        }
+    });
+
+    // 2. TRIGGER LOGIC: Find impending ad
+    // Window: Start 1s before timestamp (to catch seeking to exact time), End 5s after
     const activeAd = generatedSchedule.find(ad => 
-        !ad.hasPlayed && // Check if ad was already played/skipped
-        currentTime >= ad.timestamp_seconds && 
-        currentTime < (ad.timestamp_seconds + 30) // Assuming 30s window or duration
+        !ad.hasPlayed && 
+        currentTime >= (ad.timestamp_seconds - 1) && 
+        currentTime < (ad.timestamp_seconds + 5)
     );
 
     if (activeAd) {
         if (!isAdShowing) {
             showAd(activeAd);
         }
-    } else {
-        // If we are showing an ad, but no ad matches the current time/played status...
-        // This usually triggers if the 'ad.hasPlayed' becomes true.
-        // We let hideAd handle the cleanup explicitly when called. 
-        // We DO NOT force hideAd here because it might interrupt the video resume logic.
     }
 }
 
