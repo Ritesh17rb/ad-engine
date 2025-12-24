@@ -548,7 +548,7 @@ function checkAdSchedule() {
     // Window: Start 1s before timestamp (to catch seeking to exact time), End 5s after
     const activeAd = generatedSchedule.find(ad => 
         !ad.hasPlayed && 
-        currentTime >= (ad.timestamp_seconds - 1) && 
+        currentTime >= ad.timestamp_seconds && 
         currentTime < (ad.timestamp_seconds + 5)
     );
 
